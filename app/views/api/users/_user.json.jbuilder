@@ -1,0 +1,1 @@
+json.extract! user, :id, :email, :screen_name, :full_name
