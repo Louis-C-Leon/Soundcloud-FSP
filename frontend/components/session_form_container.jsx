@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
 import * as SessionActions from '../actions/session_actions';
-import { checkRegistered } from '../util/user_api_utils';
+import { switchLoginForm } from '../actions/ui_actions';
 
 const mSTP = (state, ownProps) => {
   return({
+    currentForm: state.ui.currentForm,
   });
 }
 
@@ -12,7 +13,7 @@ const mDTP = (dispatch, ownProps) => {
   return({
     loginUser: (user) => dispatch(SessionActions.loginUser(user)),
     logout: () => dispatch(SessionActions.logoutUser()),
-    checkRegistered: (mail) => checkRegistered(mail),
+    switchLoginForm: (mail) => dispatch(switchLoginForm(mail)),
   });
 }
 

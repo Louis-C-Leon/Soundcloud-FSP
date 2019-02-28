@@ -14,17 +14,7 @@ class EmailForm extends React.Component {
   }
 
   handleSubmit() {
-    this.props.checkRegistered(this.state.email).then(
-      (res) => {
-      let newForm;
-       if(res) {
-        newForm = <p1>Yes</p1>
-      } else {
-        newForm = <p1>No</p1>
-      }
-      this.props.changeForm(newForm);
-    }
-    )
+    this.props.switchLoginForm(this.state.email)
   }
 
   render() {
