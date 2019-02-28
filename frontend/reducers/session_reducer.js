@@ -1,15 +1,15 @@
 import * as SessionActions from '../actions/session_actions';
 
 
-const SessionReducer = (state = {currentUserId: null}, action) => {
+const SessionReducer = (state = {id: null}, action) => {
   Object.freeze(state);
   const newState = Object.assign({}, state);
   switch(action.type) {
     case SessionActions.RECEIVE_CURRENT_USER:
-      newState[currentUserId] = action.user.id;
+      newState["id"] = action.user.id;
       return newState;
     case SessionActions.LOGOUT_CURRENT_USER:
-      newState[currentUserId] = null;
+      newState["id"] = null;
       return newState;
     default:
       return state;

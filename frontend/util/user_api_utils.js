@@ -1,3 +1,3 @@
-export const fetchUsers = () => {
-  return $.ajax
+export const isAlreadyRegistered = (email) => {
+  return(false);
 }

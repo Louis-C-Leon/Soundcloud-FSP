@@ -17,10 +17,10 @@ export const logout = () => {
   });
 };
 
-export const receiveErrors = (err) => {
+export const receiveErrors = (errors) => {
   return({
     type: RECEIVE_SESSION_ERRORS,
-    err,
+    errors,
   })
 }
 
@@ -34,6 +34,6 @@ export const loginUser = (user) => dispatch => {
 export const logoutUser = () => dispatch => {
   return SessionAPIUtil.logout().then( 
     () => dispatch(logout()),
-    (err) => dispatch(receiveErrors(err))
+    (err) => dispatch(receiveErrors(err.responseJSON))
   );
 }
