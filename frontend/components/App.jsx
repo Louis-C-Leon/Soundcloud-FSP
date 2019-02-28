@@ -1,12 +1,12 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import SessionForm from './session_form';
+import SessionFormContainer from './session_form_container';
 
 const App = () => {
   return (
     <div>
       <h1>SoundCrowd</h1>
-      <AuthRoute component={SessionForm} />
+      <AuthRoute component={SessionFormContainer} />
     </div>
   );
 };

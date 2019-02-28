@@ -21,15 +21,15 @@ export const receiveErrors = (errors) => {
   return({
     type: RECEIVE_SESSION_ERRORS,
     errors,
-  })
-}
+  });
+};
 
 export const loginUser = (user) => dispatch => {
   return SessionAPIUtil.login(user).then( 
     (data) => dispatch(receiveCurrentUser(data)),
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
-}
+};
 
 export const logoutUser = () => dispatch => {
   return SessionAPIUtil.logout().then( 
@@ -37,3 +37,10 @@ export const logoutUser = () => dispatch => {
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
 }
+
+export const signupUser = (user) => dispatch => {
+  return SessionAPIUtil.signup(user).then(
+    (data) => dispatch(receiveCurrentUser(data)),
+    (err) => dispatch(receiveErrors(err.responseJSON))
+  );
+};

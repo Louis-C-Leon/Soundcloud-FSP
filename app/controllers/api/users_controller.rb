@@ -6,7 +6,6 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    puts user_params
     if @user.save
       login(@user)
       render :show
@@ -15,9 +14,12 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def check_registered
+    render json: User.registered?(user_params[:email])
+  end
+
   def show
-    user = User.find(params[:id])
-    render json: user
+    @user = User.find(params[:id])
   end
 
   def update

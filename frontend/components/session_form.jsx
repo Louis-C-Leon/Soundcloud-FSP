@@ -5,9 +5,17 @@ class SessionForm extends React.Component {
   
   constructor(props) {
     super(props);
-    this.state= {
-      currentForm: <EmailForm />,
-    }
+    this.state = {
+      currentForm: <EmailForm 
+      checkRegistered={this.props.checkRegistered}
+      changeForm={this.changeForm}
+      />,
+    };
+    this.changeForm = this.changeForm.bind(this);
+  }
+
+  changeForm(form) {
+    this.setState( {currentForm: form} )
   }
 
   render() {

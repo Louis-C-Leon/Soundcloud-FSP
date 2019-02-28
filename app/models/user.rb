@@ -31,14 +31,19 @@ class User < ApplicationRecord
     session_token
   end
 
-  def self.find_by_credentials(name, pass)
-    user = User.find_by(email: name)
+  def self.find_by_credentials(mail, pass)
+    user = User.find_by(email: mail)
 
     if user && user.is_password?(pass)
       user
     else
       nil
     end
+  end
+
+  def self.registered?(mail)
+    user = User.find_by(email: mail)
+    !!user
   end
 
   def password=(pass)
