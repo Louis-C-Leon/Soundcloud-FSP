@@ -14,25 +14,42 @@ class EmailForm extends React.Component {
   }
 
   handleSubmit() {
-    this.props.switchLoginForm(this.state.email)
+    const userMail = this.state.email
+    this.props.receivePendingUser(userMail);
+    this.props.checkRegistered(userMail).then( (registered) => {
+      if(registered) {
+        this.props.toggleForm("LoginForm")
+      } else {
+        this.props.toggleForm("SignupForm")
+      }
+    });
   }
 
   render() {
     return(
-    <form className="sessionForm" onSubmit={this.handleSubmit}>
-      <button id="fb">Continue with Shmacebook</button>
-      <button id="google">Continue with Floogle</button>
-      <div id="or">or</div>
-      <input type="text"
-       id="emailInput" 
-       placeholder="Your Email Address or Profile Url"
-       onChange={this.update}/>
-      <input type="submit" id="submitButton" value="Continue" />
-      <div id="disclaimers">
-        We may use your email and devices for updates and tips on SoundCloud's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
-        We may use information you provide us in order to show you targeted ads as described in our Privacy Policy.
-      </div>
-    </form>
+    <div className="sessionModal">
+      <form className="sessionForm" onSubmit={this.handleSubmit}>
+        <div className="sessionFormContent" >
+          <div className="sessionFormBox sessionFormButton" id="fb">Continue as Demo User</div>
+          <div className="sessionFormBox sessionFormButton" id="google">Continue as Demo User</div>
+          <div className="orDivider">
+          <div className="divider" />
+          <div id="or">or</div>
+          <div className="divider" />
+          </div>
+          <input className="sessionFormInput" type="text"
+          placeholder="Your Email Address or Profile Url *"
+          onChange={this.update}/>
+          <div className="sessionFormBox sessionFormButton" id="submitButton" onClick={this.handleSubmit}>Continue</div>
+          <div className="disclaimer">
+            We may use your email and devices for updates and tips on SoundCrowd's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
+          </div>
+          <div className="disclaimer">
+            We may use information you provide us in order to show you targeted ads as described in our Privacy Policy.
+          </div>
+        </div>
+      </form>
+    </div>
   );
   }
 }
