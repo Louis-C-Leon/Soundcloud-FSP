@@ -14,20 +14,22 @@ class EmailForm extends React.Component {
   }
 
   handleSubmit() {
-    const userMail = this.state.email
-    this.props.receivePendingUser(userMail);
-    this.props.checkRegistered(userMail).then( (registered) => {
+    const pendingUser = {
+      email: this.state.email,
+      password: "",
+      screenName: "",
+    }
+    this.props.checkRegistered(pendingUser.email).then( (registered) => {
       if(registered) {
-        this.props.toggleForm("LoginForm")
+        this.props.toggleForm("LoginForm", pendingUser);
       } else {
-        this.props.toggleForm("SignupForm")
+        this.props.toggleForm("SignupForm", pendingUser);
       }
     });
   }
 
   render() {
     return(
-    <div className="sessionModal">
       <form className="sessionForm" onSubmit={this.handleSubmit}>
         <div className="sessionFormContent" >
           <div className="sessionFormBox sessionFormButton" id="fb">Continue as Demo User</div>
@@ -49,7 +51,6 @@ class EmailForm extends React.Component {
           </div>
         </div>
       </form>
-    </div>
   );
   }
 }

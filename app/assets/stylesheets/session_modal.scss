@@ -6,32 +6,37 @@
   background-color: rgb(0,0,0);
 }
 
+.modalContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(255,255,255,0.7);
+}
+
+.modalChild {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .sessionForm {
   font-family: "Arial";
   width: 450px;
   height: 620px;
   border: none;
   background-color: rgb(255,255,255);
-  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .sessionFormContent {
   padding-left: 25px;
   padding-right: 25px;
-}
-
-.sessionFormButton {
-  display: flex;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .sessionFormInput {
@@ -63,6 +68,16 @@
   border-radius: 3px;
   margin: 10px;
   height: 40px;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#splash {
+  width: 1000px;
+  height: 1000px;
+  background-color: hotpink
 }
 
 #or {
@@ -91,4 +106,9 @@
   color: #999999;
   margin-top: 15px;
   font-size: 12px;
+}
+
+.pendingUserBox {
+  color: black;
+  border: 1px solid black;
 }
