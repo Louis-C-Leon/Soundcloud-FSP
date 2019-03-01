@@ -19,6 +19,7 @@ class SignupForm2 extends React.Component {
       screen_name: this.state.screenName,
     };
     this.props.signupUser(user);
+    this.props.close();
   }
  
   render() {

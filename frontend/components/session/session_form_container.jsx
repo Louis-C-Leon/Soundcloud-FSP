@@ -13,6 +13,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch, ownProps) => {
   return({
+    close: () => ownProps.close(),
     signupUser: (user) => dispatch(SessionActions.signupUser(user)),
     loginUser: (user) => dispatch(SessionActions.loginUser(user)),
     logout: () => dispatch(SessionActions.logoutUser()),

@@ -15,6 +15,7 @@ class LoginForm extends React.Component {
       password: this.state.password,
     }
     this.props.loginUser(user)
+    this.props.close()
   }
 
   goBack() {

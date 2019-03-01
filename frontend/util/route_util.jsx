@@ -9,7 +9,7 @@ const Auth = ({component: Component, path, loggedIn, exact}) => {
       if (!loggedIn){ 
         return (<Component {...props} />)
       } else {
-        return (<div></div>)
+        return (null);
       }
     }} />
   );
@@ -21,7 +21,7 @@ const Protected = ({component: Component, path, loggedIn, exact}) =>  {
       if (loggedIn){ 
         return (<Component {...props} />)
       } else {
-        return (<div></div>)
+        return (null);
       }
     }} />
   )

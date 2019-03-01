@@ -35,6 +35,7 @@ class SessionForm extends React.Component {
                 toggleForm={this.toggleForm}
                 pendingUser={this.state.pendingUser}
                 loginUser={this.props.loginUser}
+                close={this.props.close}
               />);
       case("SignupForm"):
         return(<SignupForm 
@@ -46,6 +47,7 @@ class SessionForm extends React.Component {
                 toggleForm={this.toggleForm}
                 pendingUser={this.state.pendingUser}
                 signupUser={this.props.signupUser}
+                close={this.props.close}
               />);
     }
   }

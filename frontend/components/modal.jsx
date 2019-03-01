@@ -7,7 +7,7 @@ class Modal extends React.Component {
     this.state={
       containerClass: "modalContainerOpen",
       childClass: "modalChildOpen",
-    }
+    };
     this.animateClose = this.animateClose.bind(this);
   }
 
@@ -15,6 +15,14 @@ class Modal extends React.Component {
     this.setState({
       containerClass: "modalContainerClose",
       childClass: "modalChildClose",
+    }, () => {
+      setTimeout(() => {
+        this.props.closeModal();
+        this.setState({
+          containerClass: "modalContainerOpen",
+          childClass: "modalChildOpen",
+        });
+      }, 1400);
     });
   }
 
@@ -28,13 +36,10 @@ class Modal extends React.Component {
         Component = SessionFormContainer;
     }
     return(
-      <div className={`modalContainer ${this.state.containerClass}`} onClick={() => {
-        setTimeout(this.props.closeModal, 1200);
-        this.animateClose();
-      }}>
+      <div className={`modalContainer ${this.state.containerClass}`} onClick={this.animateClose}>
         <img src={window.images.xIcon} className="modalX"/>
         <div className={`modalChild ${this.state.childClass}`} onClick={(e) => {e.stopPropagation()}}>
-          <Component />
+          <Component close={this.close}/>
         </div>
       </div>
     ); 

@@ -1,4 +1,5 @@
 .navBarMain {
+  text-decoration: none;
   display: flex;
   justify-content: space-around;
   align-content: center;
@@ -10,13 +11,25 @@
   width: 100%;
   background-color: #333333;
   font-family: "Arial";
+  font-size: 13px;
+  color: #CCCCCC;
 }
 
 .mainLogo {
   height: 100%;
-  width: 100%;
+  width: 100px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #FF7400;
+}
+
+.cloudLogo {
+  z-index: 2;
+  height: 25px;
+  width: 75px;
+  border: none;
+  display: block;
 }
 
 .navSearch {
@@ -36,10 +49,21 @@
 }
 
 .navButton {
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 1px solid black;
-  color: #CCCCCC;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: inherit;
+  text-decoration: none;
+  border-right: 1px solid black;
   display: flex;
   align-items: center;
+}
+
+.sessionBar {
+  display: flex;
+  align-items: center;
+}
+
+.activeButton {
+  background-color: #111111;
+  color: #FFFFFF;
 }
