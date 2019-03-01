@@ -2,7 +2,7 @@ import React from "react";
 
 const Splash = () => {
   return(
-    <div id="splash" />
+    <div>StuffGoesHere</div>
   )
 }
 

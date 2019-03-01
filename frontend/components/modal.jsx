@@ -1,22 +1,44 @@
 import React from "react";
 import SessionFormContainer from "./session/session_form_container";
 
-const Modal = (props) => {
-  if(props.modal === null) {
-    return null;
+class Modal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      containerClass: "modalContainerOpen",
+      childClass: "modalChildOpen",
+    }
+    this.animateClose = this.animateClose.bind(this);
   }
-  let Component;
-  switch(props.modal) {
-    case "session":
-      Component = SessionFormContainer;
+
+  animateClose() {
+    this.setState({
+      containerClass: "modalContainerClose",
+      childClass: "modalChildClose",
+    });
   }
-  return(
-    <div className="modalContainer" onClick={props.closeModal}>
-      <div className="modalChild" onClick={(e) => {e.stopPropagation()}}>
-        <Component />
+
+  render() {
+    if(this.props.modal === null) {
+      return null;
+    }
+    let Component;
+    switch(this.props.modal) {
+      case "session":
+        Component = SessionFormContainer;
+    }
+    return(
+      <div className={`modalContainer ${this.state.containerClass}`} onClick={() => {
+        setTimeout(this.props.closeModal, 1200);
+        this.animateClose();
+      }}>
+        <img src={window.images.xIcon} className="modalX"/>
+        <div className={`modalChild ${this.state.childClass}`} onClick={(e) => {e.stopPropagation()}}>
+          <Component />
+        </div>
       </div>
-    </div>
-  ); 
+    ); 
+    }
 }
 
 export default Modal;

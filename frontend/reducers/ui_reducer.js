@@ -1,7 +1,7 @@
 import * as UiActions from '../actions/ui_actions';
 import * as UserActions from '../actions/user_actions';
 
-const _nullState = {currentForm: null, pendingUser: null, modal: "session"}
+const _nullState = {currentForm: null, pendingUser: null, modal: null}
 
 const uiReducer = (state = _nullState, action) => {
   Object.freeze(state);

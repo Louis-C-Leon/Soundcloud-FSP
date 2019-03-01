@@ -1,9 +1,46 @@
-.sessionModal {
-  display:flex;
-  width: 1000px;
-  height:1000px;
-  z-index: 1;
-  background-color: rgb(0,0,0);
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes dropDown {
+  0% {top: -100%}
+  50% {top: -100%}
+  100% {top: 50%}
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 0 }
+}
+
+@keyframes pullUp {
+  0% {top: 50%; opacity: 1;}
+  25% {top: 50%; opacity: 1;}
+  50% {top: -100%; opacity: 1;}
+  100% {top: -100%; opacity: 1;}
+}
+
+
+.modalContainerOpen {
+  animation-name: fadeIn;
+  animation-duration: .7s;
+}
+
+.modalChildOpen {
+  animation-name: dropDown;
+  animation-duration: .7s;
+}
+
+.modalContainerClose {
+  animation-name: fadeOut;
+  animation-duration: 1.5s;
+}
+
+.modalChildClose {
+  animation-name: pullUp;
+  animation-duration: 1.5s;
 }
 
 .modalContainer {
@@ -12,7 +49,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 50;
   background-color: rgba(255,255,255,0.7);
 }
 
@@ -69,7 +106,6 @@
   margin: 10px;
   height: 40px;
   display: flex;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -84,6 +120,7 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .orDivider {
   display: flex;
   justify-content: center;
@@ -111,4 +148,18 @@
 .pendingUserBox {
   color: black;
   border: 1px solid black;
+}
+
+.modalX {
+  opacity: .7;
+  position: fixed;
+  z-index: 100;
+  top: 15px;
+  right: 15px;
+  width: 15px;
+  height: 15px;
+}
+
+.modalX:hover {
+  cursor: pointer;
 }
