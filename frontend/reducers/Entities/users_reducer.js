@@ -1,4 +1,4 @@
-import * as UserActions from "../actions/user_actions";
+import * as UserActions from "../../actions/user_actions";
 
 const nullState = {}
 

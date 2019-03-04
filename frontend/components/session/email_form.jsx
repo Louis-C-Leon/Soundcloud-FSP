@@ -4,28 +4,57 @@ class EmailForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {email: ""};
+    this.state =  {
+      email: "",
+      errors: [],
+      inputClass: ""
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(e) {
-    this.setState( {email: e.target.value} )
+    this.setState({email: e.target.value});
   }
 
-  handleSubmit() {
-    const pendingUser = {
-      email: this.state.email,
-      password: "",
-      screenName: "",
-    }
-    this.props.checkRegistered(pendingUser.email).then( (registered) => {
-      if(registered) {
-        this.props.toggleForm("LoginForm", pendingUser);
-      } else {
-        this.props.toggleForm("SignupForm", pendingUser);
+  handleSubmit(e) {
+    e.preventDefault();
+    if(this.props.checkEmail(this.state.email).length === 0) {
+      const pendingUser = {
+        email: this.state.email,
+        password: "",
+        screenName: "",
       }
-    });
+      this.props.checkRegistered(pendingUser.email).then( (registered) => {
+        if(registered) {
+          this.props.toggleForm("LoginForm", pendingUser);
+        } else {
+          this.props.toggleForm("SignupForm", pendingUser);
+        }
+      });
+    } else {
+      this.setState({
+        errors: this.props.checkEmail(this.state.email),
+        inputClass: "inputError",
+      })
+    }
+  }
+
+  renderErrors() {
+    if(this.state.errors.length === 0) {
+      return null;
+    } else {
+      return(
+        <div className="errorDiv">
+          {this.state.errors.map((err) => (
+              <div key={`${err}`} className="errorDiv">
+                {err}
+              </div>
+            ))}
+        </div>
+      )
+    }
   }
 
   render() {
@@ -39,9 +68,10 @@ class EmailForm extends React.Component {
           <div id="or">or</div>
           <div className="divider" />
           </div>
-          <input className="sessionFormInput" type="text"
+          <input className={`sessionFormInput ${this.state.inputClass}`} type="text"
           placeholder="Your Email Address or Profile Url *"
           onChange={this.update}/>
+          {this.renderErrors()}
           <div className="sessionFormBox sessionFormButton" id="submitButton" onClick={this.handleSubmit}>Continue</div>
           <div className="disclaimer">
             We may use your email and devices for updates and tips on SoundCrowd's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.

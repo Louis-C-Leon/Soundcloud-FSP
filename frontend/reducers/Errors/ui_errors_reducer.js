@@ -1,4 +1,4 @@
-import * as UiActions from '../actions/ui_actions';
+import * as UiActions from '../../actions/ui_actions';
 
 const uiErrorsReducer = (state = [], action) => {
   Object.freeze(state);
@@ -9,8 +9,6 @@ const uiErrorsReducer = (state = [], action) => {
         newState.push(el);
       })
       return newState;
-    case UiActions.RECEIVE_CURRENT_FORM:
-      return [];
     default:
       return state;
   }

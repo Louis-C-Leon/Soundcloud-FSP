@@ -1,22 +1,24 @@
 import React from 'react';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Splash from "./splash";
-import NavBar from "./nav_bar";
+// import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import SplashContainer from "./splash/splash";
 import ModalContainer from './modal_container';
+import NavBarContainer from "./nav_bar/nav_bar_container";
+import PlayerContainer from "./player/player_container";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 const App = () => {
   return (
-    <div>
-      <NavBar />
-      <Splash />
-      <ModalContainer />
-      <div className="iconCredits">Icons made by 
-        <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> from 
-        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
-        licensed by 
-        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-      </div>
-    </div>
+    <Switch>
+      <Route exact path="/" render={() => {return(<Redirect to="/discover" />)}} />
+      <Route path="/" render={() => {return(
+        <>
+          <NavBarContainer />
+          <ModalContainer />
+          <SplashContainer />
+          <PlayerContainer />
+        </>
+      )}} />
+    </Switch>
   );
 };
 

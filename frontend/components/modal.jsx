@@ -39,7 +39,7 @@ class Modal extends React.Component {
       <div className={`modalContainer ${this.state.containerClass}`} onClick={this.animateClose}>
         <img src={window.images.xIcon} className="modalX"/>
         <div className={`modalChild ${this.state.childClass}`} onClick={(e) => {e.stopPropagation()}}>
-          <Component close={this.close}/>
+          <Component close={this.animateClose}/>
         </div>
       </div>
     ); 

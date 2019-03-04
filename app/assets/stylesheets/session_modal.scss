@@ -87,6 +87,16 @@
   border: 1px solid #9c9c9c;
 }
 
+.inputError {
+  border: 1px solid #FF5500;
+}
+
+.errorDiv {
+  padding-left: 20px;
+  font-size: 12px;
+  color: #FF5500;
+}
+
 #submitButton {
   background-color: #FF5500;
   margin-bottom: 50px;
@@ -108,6 +118,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.sessionFormButton:hover {
+  cursor: pointer;
 }
 
 #splash {

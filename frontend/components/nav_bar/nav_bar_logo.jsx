@@ -1,5 +1,4 @@
 import React from 'react';
-import { ProtecedRoute, AuthRoute } from "../util/route_util";
 
 const NavBarLogo = () => {
   return(

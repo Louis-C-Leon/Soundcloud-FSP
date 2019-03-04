@@ -1,4 +1,4 @@
-import * as SessionAPIUtil from '../util/session_api_utils';
+import * as SessionAPIUtil from '../util/session_utils';
 import * as UserActions from './user_actions';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";

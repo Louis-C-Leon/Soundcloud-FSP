@@ -19,6 +19,13 @@ class User < ApplicationRecord
   validates :email, :session_token, uniqueness: true
   validates :password, length: {in: (6..20), allow_nil: true}
 
+  has_many :songs,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Song'
+
+  has_one_attached :image
+
   attr_reader :password
 
   def ensure_session_token

@@ -1,5 +1,5 @@
 import React from 'react';
-import SessionNavBar from './session/session_nav_bar';
+import SessionNavBar from './session_nav_bar';
 import NavBarLogo from './nav_bar_logo';
 import  { NavLink } from 'react-router-dom';
 
@@ -25,7 +25,7 @@ class NavBar extends React.Component {
         <div className="searchContainer">
           <input type="text" className="navSearch" placeholder="Search" />
         </div>
-        <SessionNavBar />
+        <SessionNavBar user={this.props.user}/>
       </div>
     );
   }

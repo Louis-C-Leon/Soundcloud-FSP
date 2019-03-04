@@ -1,4 +1,4 @@
-import * as UserApiUtils from '../util/user_api_utils';
+import * as UserApiUtils from '../util/user_utils';
 
 export const RECEIVE_PENDING_USER = "RECEIVE_PENDING_USER";
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
