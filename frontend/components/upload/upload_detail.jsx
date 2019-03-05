@@ -13,7 +13,7 @@ class UploadDetails extends React.Component {
     return(
       <form className="uploadDetails" onSubmit={this.handleSubmit}>
         <img src={this.props.coverArt} />
-        <input type="file"
+        <input type="file" />
         <label>Title
           <input type="text" placeholder="Name your song." />
         </label>
