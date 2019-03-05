@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import UploadForm from './upload';
-import * as SongActions from '../actions/song_actions';
-import * as UiActions from '../actions/ui_actions';
+import * as SongActions from '../../actions/song_actions';
+import * as UiActions from '../../actions/ui_actions';
 
 const mSTP = (state) => {
   return({

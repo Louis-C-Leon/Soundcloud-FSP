@@ -6,12 +6,17 @@
   bottom: 0;
   height: 800px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.uploadDetails {
+  display: flex;
+  flex-direction: column;
+}
+
 .fileUploadButton {
-  height: 0px;
-  width: 0px;
   position: relative;
+  display: none;
 }

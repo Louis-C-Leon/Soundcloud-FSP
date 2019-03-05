@@ -23,7 +23,7 @@ class SessionForm extends React.Component {
   }
 
   demoLogin() {
-    console.log("hello");
+    
   }
 
   render() {
