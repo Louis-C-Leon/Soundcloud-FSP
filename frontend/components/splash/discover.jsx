@@ -11,8 +11,6 @@ class SongDiscover extends React.Component {
     this.props.getAllSongs();
   }
 
-
-
   render() {
     let result;
     if(Object.keys(this.props.songs) === 0) {
@@ -32,6 +30,7 @@ class SongDiscover extends React.Component {
       </div>
     );
   }
+  
 }
 
 export default SongDiscover;

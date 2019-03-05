@@ -17,37 +17,43 @@ ActiveRecord::Base.transaction do
     password: "TPABaoty", 
     full_name: "Kendrick Lamar Duckworth", 
     image: {io: File.open("/Users/louisleon/desktop/sound_crowd_seed_assets/kendrick.png"), filename: "kendrick.png"})
+    
   courtney = User.create!(email: "courtney@email.com",
     screen_name: "Courtney",
     password: "password",
-    full_name: "Courtney Barnett")
-  courtney.image.attach(open("https://s3.us-west-1.amazonaws.com/sound-crowd-dev/2XnyJmQqouHKCtsDQxUe6AEZ?response-content-disposition=inline&X-Amz-Security-Token=FQoGZXIvYXdzEGEaDLZ1I4jx4h81%2BS9uISK4A7Kf4dFVyCrAG%2Bl%2F8gpVPg%2Bg8tUqNG3bBlzWS1MOzgIdMVS6vm93PD%2F9Oo2ilA0P512o07xtIkr71SjCKur2dnTWNl4uy9eKSE%2FDzol7EAMfEfHPGqxhdvfbilB8GfjoVWvPmiiHKrnNJU7XQ8Sh6uwscXEw%2FbUQoM3yNNvlcuqBkyG02RXluLHCop6irhtcFOLNPbhz%2BtfZQ7TdebKrevYqX7V3KwNABnNct0gT65VAxhLwYWTd2k4nJnu8b%2BKygWGo%2BqRdo%2BTLLqyDvMN%2FOvsxRfbMFNymDJFZhJK5VFgTegfxyVzjuFOisMrfZyoaFtZFdkkurmBHisyCVFCuOV5UnPaGAGWUj4fCvpLKU7upxQZFi1g0FW1%2Fjym5VZM89U1lBd5KZISWvYxOu4X17lXzjz3kIRXhdlCJio7Mq%2BS78BYB3CP3bfTLBjPX1OpEfFGeOgL%2B9Vax2Ong%2FFzA3XzitVYSyxL5nBY8w19mJWMN%2ByL1iLMSkeLHsns9g6Xsb1yNaj3%2B3FFsHBnbqqmHKkHQv4y3nrOgvVdoVfg%2Fju9hn7t1d8hiGuB8vHn7ehXY9JfUh7tZW9eOKLm6%2BuMF&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190305T182210Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQZMBZMKFGV6MOAWD%2F20190305%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Signature=fc49a6af855cb24ae341b109c926c0f40f6faee734a2f96530ba68f96ea46054"))
+    full_name: "Courtney Barnett",
+    image: {io: File.open("/Users/louisleon/desktop/sound_crowd_seed_assets/courtney.jpg"), filename: "courtney.jpg"})
+    
   janelle = User.create!(email:"janelle@email.com",
     screen_name: "Janelle",
     password: "password",
     full_name: "Janelle Monae",
     image: {io: File.open("/Users/louisleon/desktop/sound_crowd_seed_assets/janelle.jpg"), filename: "janelle.jpg"})
+    
   tame_impala = User.create!(email:"tameimpala@email.com",
     screen_name: "Tame Impala",
     password: "password",
     full_name: "Kevin Parker",
     image: {io: File.open("/Users/louisleon/desktop/sound_crowd_seed_assets/tame_impala.jpg"), filename: "tame_impala.jpg"})
+    
   earl = User.create!(email:"earl@email.com",
     screen_name: "Earl Sweatshirt",
     password: "password",
     full_name: "Thebe Kgositsile",
     image: {io: File.open("/Users/louisleon/desktop/sound_crowd_seed_assets/earl.jpg"), filename: "earl.jpg"})
+    
   louis = User.create!(email: "louis.leon@gmail.com", 
     screen_name: "Louis XV", 
     password: "runner39", 
     full_name: "Louis Leon")
+
   jacob = User.create!(email: "jacob@email.com", 
     screen_name: "CiabattaBoi", 
     password: "asdfghjkl;'", 
     full_name: "Jacob Leon",
     image: {io: File.open("/Users/louisleon/desktop/sound_crowd_seed_assets/jacob.jpg"), filename: "jacob.jpg"})
   
-    Song.destroy_all
+  Song.destroy_all
 
   song1 = Song.new(
     title: "Money Trees",

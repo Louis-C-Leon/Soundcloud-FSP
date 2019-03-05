@@ -5,7 +5,7 @@ import * as UiActions from '../../actions/ui_actions';
 
 const mSTP = (state) => {
   return({
-    artist_id: state.session.id
+    userId: state.session.id
   });
 }
 

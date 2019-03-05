@@ -8,8 +8,7 @@ class UploadForm extends React.Component {
     super(props);
     this.state = {
       song: null,
-      coverArt: window.defaultSong,
-      genre: null,
+      coverArt: window.images.defaultSong,
       errors: [],
       redirect: null,
       photoUrl: null,
@@ -34,37 +33,23 @@ class UploadForm extends React.Component {
 
   receiveSong(e) {
     const files = e.target.files;
-    const fileReader = new FileReader();
+    const reader = new FileReader();
 
-    fileReader.onloadend = () => {
+    reader.onloadend = () => {
       this.setState({song: files[0]})
     }
 
     if(files) {
-      fileReader.readAsDataURL(files[0]);
+      reader.readAsDataURL(files[0]);
     }
   }
-
-  // getCover(e) {
-  //   const file = e.target.files[0];
-  //   const fileReader = new FileReader();
-
-  //   fileReader.onloadend = () => {
-  //     this.setState({coverArt: file, photoUrl: fileReader.result });
-  //   }
-  //   if(file) {
-  //     fileReader.readAsDataURL(file);
-  //   }
-  //   console.log(fileReader);
-  //   console.log(this.state);
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
   }
 
   requestSong() {
-    const button = document.getElementById("file_upload_button");
+    const button = document.getElementById("songUploadButton");
     button.click();
   }
 
@@ -72,12 +57,19 @@ class UploadForm extends React.Component {
     if (this.state.song === null) {
       return null;
     } else {
-      return <UploadDetails />;
+      return (
+        <UploadDetails
+        song={this.state.song}
+        coverArt={this.state.coverArt}
+        title={this.state.song.name}
+        createSong={this.props.createSong}
+        userId={this.props.userId}/>
+      );
     }
   }
 
   render() {
-    if(this.props.artist_id === null) {
+    if(this.props.userId === null) {
       this.setState({redirect: "/"});
       this.props.openModal();
     }
@@ -89,7 +81,7 @@ class UploadForm extends React.Component {
             <div onClick={this.requestSong}>choose files to upload
               <input type="file"
                 accept="audio/*"
-                id="file_upload_button"
+                id="songUploadButton"
                 className="fileUploadButton" 
                 onChange={this.receiveSong}/>
             </div>

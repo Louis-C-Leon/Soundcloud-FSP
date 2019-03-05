@@ -3,6 +3,7 @@ import * as UserActions from "../../actions/user_actions";
 const nullState = {}
 
 const usersReducer = (state = nullState, action) => {
+
   Object.freeze(state);
   const newState = Object.assign({}, state)
   switch(action.type) {

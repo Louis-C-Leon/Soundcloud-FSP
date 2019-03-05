@@ -2,9 +2,11 @@ import * as SongActions from "../../actions/song_actions";
 import * as UserActions from "../../actions/user_actions";
 
 const SongsReducer = (state = {}, action) => {
-  if (state === null) {
-    return {}
-  }
+  // if (state === null) {
+  //   return {}
+  // }
+  
+
   Object.freeze(state);
   const newState = Object.assign({}, state)
   switch(action.type) {

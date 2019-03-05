@@ -6,16 +6,19 @@ import Root from "./components/root";
 
 document.addEventListener("DOMContentLoaded", () =>{
   let store;
+
   if (window.currentUser) {
     let userSongs;
     const flatUser = window.currentUser;
+
     if (window.currentUser.songs !== undefined) {
       userSongs = window.currentUser.songs;
       flatUser.songs = Object.keys(flatUser.songs);
     } else {
-      userSongs = null;
+      userSongs = {};
       flatUser.songs = [];
     }
+    
     const preloadedState = {
       session: { id: window.currentUser.id },
       entities: {
