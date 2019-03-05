@@ -5,6 +5,7 @@ const NavBarLogo = () => {
 
       <div className="mainLogo">
         <img className="cloudLogo" src={window.images.tempLogo} />
+        SOUNDCROWD
       </div>
 
   );

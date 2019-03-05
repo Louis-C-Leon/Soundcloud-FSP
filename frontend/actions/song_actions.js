@@ -52,9 +52,9 @@ export const createSong = (song) => dispatch => {
 export const destroySong = (id) => dispatch => {
   return(
     Util.destroySong(id).then(
-      (song) => dispatch(removeSong(song)),
+      (id) => dispatch(removeSong(id)),
       (err) => {
-        // dispatch(receiveSongErrors(err.responseJSON))
+        dispatch(receiveSongErrors(err.responseJSON))
       }
     )
   );

@@ -5,11 +5,7 @@ class Player extends React.Component{
     if (this.props.song === undefined) {
       return null
     } else {
-      return(
-        <audio controls autoPlay>
-          <source src={this.props.song.songUrl} />
-        </audio>
-      );
+      return null
     }
   }
 }

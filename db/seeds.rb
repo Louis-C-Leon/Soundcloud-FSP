@@ -38,7 +38,7 @@ ActiveRecord::Base.transaction do
     full_name: "Thebe Kgositsile",
     image: {io: File.open("/Users/louisleon/desktop/sound_crowd_seed_assets/earl.jpg"), filename: "earl.jpg"})
   louis = User.create!(email: "louis.leon@gmail.com", 
-    screen_name: "LouisXV", 
+    screen_name: "Louis XV", 
     password: "runner39", 
     full_name: "Louis Leon")
   jacob = User.create!(email: "jacob@email.com", 

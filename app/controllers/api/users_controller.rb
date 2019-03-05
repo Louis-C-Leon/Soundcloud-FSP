@@ -19,7 +19,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:songs).find(params[:id])
   end
 
   def update

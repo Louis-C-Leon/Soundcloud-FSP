@@ -3,7 +3,7 @@ import Player from "./player";
 
 const mSTP = (state, ownProps) => {
   return({
-    song: state.entities.songs[state.ui.playingSong],
+    song: state.ui.playingSong,
   });
 }
 

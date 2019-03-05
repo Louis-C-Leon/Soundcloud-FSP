@@ -61,8 +61,8 @@ class EmailForm extends React.Component {
     return(
       <form className="sessionForm" onSubmit={this.handleSubmit}>
         <div className="sessionFormContent" >
-          <div className="sessionFormBox sessionFormButton" id="fb">Continue as Demo User</div>
-          <div className="sessionFormBox sessionFormButton" id="google">Continue as Demo User</div>
+          <div className="sessionFormBox sessionFormButton" id="fb" onClick={() => this.props.loginUser({email: "louis.leon@gmail.com", password:"runner39"})}>Continue as Demo User</div>
+          <div className="sessionFormBox sessionFormButton" id="google" onClick={this.demoLogin}>Continue as Demo User</div>
           <div className="orDivider">
           <div className="divider" />
           <div id="or">or</div>
@@ -70,7 +70,8 @@ class EmailForm extends React.Component {
           </div>
           <input className={`sessionFormInput ${this.state.inputClass}`} type="text"
           placeholder="Your Email Address or Profile Url *"
-          onChange={this.update}/>
+          onChange={this.update}
+          value={this.state.email}/>
           {this.renderErrors()}
           <div className="sessionFormBox sessionFormButton" id="submitButton" onClick={this.handleSubmit}>Continue</div>
           <div className="disclaimer">

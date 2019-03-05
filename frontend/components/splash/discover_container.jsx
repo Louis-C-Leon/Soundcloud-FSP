@@ -6,6 +6,7 @@ import Discover from "./discover"
 const mSTP = (state, ownProps) => {
   return({
     songs: state.entities.songs,
+    artists: state.entities.users,
   });
 };
 

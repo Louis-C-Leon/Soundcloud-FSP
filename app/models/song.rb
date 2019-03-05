@@ -13,6 +13,7 @@
 class Song < ApplicationRecord
 
   validates :title, :genre, :release_date, :user_id, presence: true
+  validate :ensure_song_file
   
   has_one_attached :image
   has_one_attached :song_file
@@ -21,5 +22,11 @@ class Song < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id,
     class_name: 'User'
+
+  def ensure_song_file
+    unless self.song_file.attached?
+      errors[:song_file] << "must be attached"
+    end
+  end
   
 end

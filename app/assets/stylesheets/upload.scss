@@ -1,5 +1,17 @@
-.uploadForm {
+.uploadContainer {
   position: relative;
-  top:500px;
-  left: 500px;
+  top: 46px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fileUploadButton {
+  height: 0px;
+  width: 0px;
+  position: relative;
 }

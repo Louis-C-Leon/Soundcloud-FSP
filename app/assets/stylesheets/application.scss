@@ -13,7 +13,14 @@
  *= require_self
  */
 
+ #root {
+  position: relative;
+  top: 46px;
+}
+
  @import 'reset';
  @import 'session_modal';
  @import 'nav_bar';
  @import 'upload.scss';
+ @import 'discover.scss';
+ 

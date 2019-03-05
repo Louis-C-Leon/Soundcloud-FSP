@@ -1,0 +1,22 @@
+.songSplash {
+  padding: 20px;
+  position: absolute;
+  display: flex;
+  width: 75%;
+  border: 1px solid #e0dfdf;
+  border-top: none;
+  margin-left: 10px;
+  flex-wrap: wrap;
+  font-family: Arial;
+  font-size: 14px;
+}
+
+.songContainer {
+  padding-top: 20px;
+  margin: 10px;
+}
+
+.songArt {
+  width: 175px;
+  height: 175px;
+}

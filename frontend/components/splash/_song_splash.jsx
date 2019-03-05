@@ -15,12 +15,12 @@ class SongSplash extends React.Component {
     }
     return(
       <>
-        <img className="songArtSplash"
+        <img className="songArt"
         src={source}
-        width="175px"
-        height="175px"
         onClick={() => this.props.playSong(this.props.song.id)}/>
+        <div className="songInfo">
         <div>{this.props.song.title}</div>
+        </div>
       </>
     )
   }

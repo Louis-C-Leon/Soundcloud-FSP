@@ -25,9 +25,9 @@ class Api::SongsController < ApplicationController
   end
 
   def destroy
-    @song = Song.find_by(id: params[:id])
-    Song.destroy(params[:id])
-    render :show
+    id = params[:id]
+    Song.destroy(id)
+    render json: id
   end
 
 

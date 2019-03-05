@@ -22,6 +22,10 @@ class SessionForm extends React.Component {
     })
   }
 
+  demoLogin() {
+    console.log("hello");
+  }
+
   render() {
     switch(this.state.currForm) {
       case("EmailForm"):
@@ -30,6 +34,8 @@ class SessionForm extends React.Component {
                 checkRegistered={this.props.checkRegistered}
                 checkEmail={this.props.checkEmail}
                 pendingUser={this.state.pendingUser}
+                demoLogin={this.demoLogin}
+                loginUser={this.props.loginUser}
               />);
       case("LoginForm"):
         return(<LoginForm 
@@ -40,12 +46,14 @@ class SessionForm extends React.Component {
                 errors={this.props.sessionErrors}
                 loggedIn={this.props.loggedIn}
                 checkPassword={this.props.checkPassword}
+                demoLogin={this.demoLogin}
               />);
       case("SignupForm"):
         return(<SignupForm 
                 toggleForm={this.toggleForm}
                 pendingUser={this.state.pendingUser}
                 checkPassword={this.props.checkPassword}
+                demoLogin={this.demoLogin}
               />);
       case("SignupForm2"):
         return(<SignupForm2 
@@ -54,6 +62,7 @@ class SessionForm extends React.Component {
                 signupUser={this.props.signupUser}
                 checkScreenName={this.props.checkScreenName}
                 close={this.props.close}
+                demoLogin={this.demoLogin}
               />);
     }
   }
