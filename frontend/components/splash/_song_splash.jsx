@@ -4,6 +4,7 @@ class SongSplash extends React.Component {
 
   constructor(props) {
     super(props);
+    this.playSong = this.props.playSong.bind(this)
   }
 
   render() {
@@ -17,7 +18,7 @@ class SongSplash extends React.Component {
       <>
         <img className="songArt"
         src={source}
-        onClick={() => this.props.playSong(this.props.song.id)}/>
+        onClick={() => this.playSong(this.props.song.id)}/>
         <div className="songInfo">
         <div>{this.props.song.title}</div>
         </div>

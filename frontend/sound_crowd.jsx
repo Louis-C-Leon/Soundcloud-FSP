@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         users: { [flatUser.id]: flatUser },
         songs: userSongs,
       },
-      ui: {pendingUser: null, modal: null, currentForm: null}
+      ui: {modal: null, playingSong: null}
     };
 
     store = configureStore(preloadedState);

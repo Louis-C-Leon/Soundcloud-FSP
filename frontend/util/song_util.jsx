@@ -5,6 +5,12 @@ export const fetchSongs = () => {
   })
 }
 
+export const fetchSong = (id) => {
+  return $.ajax({
+    url: `api/songs/${id}`
+  })
+}
+
 export const createSong = (song) => {
   return $.ajax({
     url: "api/songs",

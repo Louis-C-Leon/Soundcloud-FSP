@@ -17,8 +17,8 @@ const uiReducer = (state = _nullState, action) => {
     // case UserActions.RECEIVE_CURRENT_USER:
     //   newState.modal = null;
     //   return newState;
-    case UiActions.RECEIVE_PLAY_SONG:
-      newState.playingSong = action.song;
+    case SongActions.PLAY_SONG:
+      newState.playingSong = action.songId;
       return newState
     default:
       return state;

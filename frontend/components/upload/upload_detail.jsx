@@ -23,7 +23,7 @@ class UploadDetails extends React.Component {
     formData.append('song[title]', this.state.title);
     formData.append('song[song_file]', this.state.song);
     if(this.state.description !== "") {
-      formData.append('song[descriptiion]', this.state.description);
+      formData.append('song[description]', this.state.description);
     } 
     formData.append('song[genre]', this.state.genre);
     formData.append('song[release_date]', "01/01/01");
@@ -97,7 +97,7 @@ class UploadDetails extends React.Component {
         <div className="uploadCancelButton">Cancel</div>
         <div className="uploadSubmitButton" onClick={this.handleSubmit}>Save</div>
       </form>
-    )
+    );
   }
 }
 

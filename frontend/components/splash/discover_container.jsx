@@ -13,7 +13,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch, ownProps) => {
   return({
     getAllSongs: () => dispatch(SongActions.getAllSongs()),
-    playSong: (song) => dispatch(UiActions.receivePlayingSong(song)),
+    playSong: (id) => dispatch(SongActions.playSong(id)),
   });
 };
 

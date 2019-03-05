@@ -1,5 +1,5 @@
 import React from 'react';
-import Song from "./_song_splash";
+import SongContainer from "./song_container";
 
 class SongDiscover extends React.Component {
 
@@ -23,9 +23,8 @@ class SongDiscover extends React.Component {
         
           {Object.values(result).map((curr_song) =>{
             return(<div className="songContainer">
-              <Song key={curr_song.id} 
-                song={curr_song} 
-                playSong={this.props.playSong}/>
+              <SongContainer key={curr_song.id} 
+                song={curr_song} />
             </div>)})}
       </div>
     );
