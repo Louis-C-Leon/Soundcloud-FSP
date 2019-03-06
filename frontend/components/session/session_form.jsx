@@ -36,6 +36,7 @@ class SessionForm extends React.Component {
                 pendingUser={this.state.pendingUser}
                 demoLogin={this.demoLogin}
                 loginUser={this.props.loginUser}
+                close={this.props.close}
               />);
       case("LoginForm"):
         return(<LoginForm 

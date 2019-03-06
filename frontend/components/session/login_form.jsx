@@ -15,6 +15,7 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     const registerState = this.setState.bind(this);
     if(this.props.checkPassword(this.state.password).length === 0) {
       const user = {

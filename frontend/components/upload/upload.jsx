@@ -79,7 +79,8 @@ class UploadForm extends React.Component {
       {this.redirect()}
         <form className="uploadForm"
           onSubmit={this.handleSubmit}>
-            <div onClick={this.requestSong}>choose files to upload
+            <div className="songSelectButton"
+              onClick={this.requestSong}>choose files to upload
               <input type="file"
                 accept="audio/*"
                 id="songUploadButton"

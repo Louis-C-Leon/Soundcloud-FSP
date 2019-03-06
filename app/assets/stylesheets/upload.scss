@@ -1,14 +1,16 @@
 .uploadContainer {
-  position: relative;
-  top: 46px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 800px;
+  position: absolute;
+  left: 50%  ;
+  transform: translate(-50%, 100px); 
+  width: 800px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px 1px rgb(220, 220, 220);
 }
 
 .uploadDetails {
@@ -16,7 +18,23 @@
   flex-direction: column;
 }
 
+.songSelectButton {
+  font-family: "Lucida Grande";
+  font-size: 15px;
+  width: 300px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #FF5500;
+  border-radius: 3px;
+}
+
+.songSelectButton:hover {
+  cursor: pointer;
+}
+
 .fileUploadButton {
-  position: relative;
   display: none;
 }

@@ -63,7 +63,7 @@ when "development"
       description:"Good Kid, M.A.A.D City (stylized as good kid, m.A.A.d city) is the second studio album by American rapper Kendrick Lamar. It was released on October 22, 2012, by Aftermath Entertainment, Interscope Records, and Top Dawg Entertainment. The album is Lamar's major label debut, after his independently released first album Section.80 in 2011 and his signing to Aftermath and Interscope the following year.",
       genre: "hip-hop",
       release_date: "22/10/2012",
-      user_id: kendrick.id,
+      user_id: kendrick.id          ,
       image: {io: open("https://s3-us-west-1.amazonaws.com/sound-crowd-dev/kendrick_album1.jpg"), filename: "kendrick_album1.jpg"},
       song_file: {io: open("https://s3-us-west-1.amazonaws.com/sound-crowd-dev/song1.mp3"), filename: "song1.mp3"}
     )

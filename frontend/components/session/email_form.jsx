@@ -61,8 +61,10 @@ class EmailForm extends React.Component {
     return(
       <form className="sessionForm" onSubmit={this.handleSubmit}>
         <div className="sessionFormContent" >
-          <div className="sessionFormBox sessionFormButton" id="fb" onClick={() => this.props.loginUser({email: "louis.leon@gmail.com", password:"runner39"})}>Continue as Demo User</div>
-          <div className="sessionFormBox sessionFormButton" id="google" onClick={this.demoLogin}>Continue as Demo User</div>
+          <div className="sessionFormBox sessionFormButton" id="fb" onClick={() => {this.props.loginUser({email: "louis.leon@gmail.com", password:"runner39"});
+            this.props.close()}}>Continue as Demo User</div>
+          <div className="sessionFormBox sessionFormButton" id="google" onClick={() => {this.props.loginUser({email: "louis.leon@gmail.com", password:"runner39"});
+            this.props.close()}}>Continue as Demo User</div>
           <div className="orDivider">
           <div className="divider" />
           <div id="or">or</div>
