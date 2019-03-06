@@ -276,7 +276,7 @@ require 'open-uri'
       release_date:"14/02/2019",
       user_id: jacob.id,
       image: {io: open("https://s3-us-west-1.amazonaws.com/sound-crowd-dev/jacob_album1.jpg"), filename: "jacob_album1.jpg"},
-      song_file: {io: open("/Users/louisleon/desktop/sound_crowd_seed_assets/song25.mp3"), filename: "song25.mp3"}
+      song_file: {io: open("https://s3-us-west-1.amazonaws.com/sound-crowd-dev/song25.mp3"), filename: "song25.mp3"}
     )
     song26 = Song.create!(
       title: "Valentina",
