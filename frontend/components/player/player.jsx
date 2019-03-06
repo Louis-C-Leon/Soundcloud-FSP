@@ -2,6 +2,7 @@ import React from 'react';
 import PlayerControls from './player_controls';
 import ProgressBar from './progress_bar';
 import SongInfo from './song_info';
+import VolumeControl from './volume';
 
 // Aww yeah React audio player from scratch!
 
@@ -58,6 +59,7 @@ class Player extends React.Component{
           <ProgressBar 
             currTime={this.state.currTime}
             totalTime={this.state.duration}/>
+          <VolumeControl />
           <SongInfo song={this.props.song}/>
           {this.playerAudio()}
         </div>
