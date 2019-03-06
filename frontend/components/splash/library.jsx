@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import Song from "./_song_splash"
+import SongContainer from "./song_container";
 
 const UserLibrary = (props) => {
   if(props.currUser === undefined) {
@@ -13,7 +13,7 @@ const UserLibrary = (props) => {
       <>
         {props.songs.map((song) => {return(
           <>
-            <Song key={song.id} song={song} />
+            <SongContainer key={song.id} song={song} />
             <div onClick={() => props.destroySong(song.id)}>Delete!</div>
           </>
         )})}

@@ -2,7 +2,9 @@ import React from 'react';
 
 const SongInfo = (props) => {
   return(
-    <div>{props.song.title}</div>
+    <>
+      <div>{props.song.title}</div>
+    </>
   )
 }
 

@@ -59,6 +59,7 @@ class UploadForm extends React.Component {
     } else {
       return (
         <UploadDetails
+        redirect={this.redirect}
         song={this.state.song}
         coverArt={this.state.coverArt}
         title={this.state.song.name}

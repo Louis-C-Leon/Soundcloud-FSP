@@ -7,9 +7,10 @@ class UploadDetails extends React.Component {
       song: this.props.song,
       coverArt: null,
       title: this.props.title,
-      genre: "",
+      genre: "other",
       description: "",
       coverUrl: this.props.coverArt,
+      redirect: null,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.requestArtwork = this.requestArtwork.bind(this);
@@ -28,8 +29,11 @@ class UploadDetails extends React.Component {
     formData.append('song[genre]', this.state.genre);
     formData.append('song[release_date]', "01/01/01");
     formData.append('song[user_id]', this.props.userId);
+    if(this.state.coverArt !== null) {
+      formData.append('song[image]', this.state.coverArt);
+    }
     this.props.createSong(formData)
-    .then(() => {console.log(this.state)});
+    this.setState({redirect: "/"})
   }
 
   
@@ -82,13 +86,13 @@ class UploadDetails extends React.Component {
         <label>Genre
           <select name="genre" value={this.state.genre}
               onChange={this.updateField('genre')}>
+            <option value="other">other</option>
             <option value="indie/alternative">indie/alternative</option>
             <option value="pop">indie/alternative</option>
             <option value="rock/metal">rock/metal</option>
             <option value="hip-hop">hip-hop</option>
             <option value="jazz">jazz</option>
             <option value="electronic">electronic</option>
-            <option value="other">other</option>
           </select>
         </label>
         <label>Description 
@@ -96,6 +100,7 @@ class UploadDetails extends React.Component {
         </label>
         <div className="uploadCancelButton">Cancel</div>
         <div className="uploadSubmitButton" onClick={this.handleSubmit}>Save</div>
+        {this.props.redirect()}
       </form>
     );
   }

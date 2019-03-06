@@ -20,6 +20,9 @@ const uiReducer = (state = _nullState, action) => {
     case SongActions.PLAY_SONG:
       newState.playingSong = action.songId;
       return newState
+    case SongActions.REMOVE_SONG:
+      newState.playingSong = null;
+      return newState;
     default:
       return state;
   }

@@ -35,6 +35,8 @@ class Player extends React.Component{
     );
   }
 
+
+
   togglePlay() {
     const audio = document.getElementById("playerAudio")
     if (this.state.playing === false) {
@@ -47,7 +49,6 @@ class Player extends React.Component{
   }
 
   render() {
-    console.log(this.state);
     if (this.props.song === null) {
       return null
     } else {
