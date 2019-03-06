@@ -92,7 +92,7 @@ require 'open-uri'
       release_date:"22/10/2012",
       user_id: kendrick.id,
       image: {io: open("https://s3-us-west-1.amazonaws.com/sound-crowd-dev/kendrick_album1.jpg"), filename: "kendrick_album1.jpg"},
-      song_file: {io: open("/Users/louisleon/desktop/sound_crowd_seed_assets/song4.mp3"), filename: "song4.mp3"}
+      song_file: {io: open("https://s3-us-west-1.amazonaws.com/sound-crowd-dev/song4.mp3"), filename: "song4.mp3"}
     )
     song5 = Song.create!(
       title: "Elevator Operator",
