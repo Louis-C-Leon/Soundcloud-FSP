@@ -4,8 +4,6 @@ import ProgressBar from './progress_bar';
 import SongInfo from './song_info';
 import VolumeControl from './volume';
 
-// Aww yeah React audio player from scratch!
-
 class Player extends React.Component{
   constructor(props) {
     super(props);
@@ -13,9 +11,12 @@ class Player extends React.Component{
       playing: true,
       currTime: 0,
       duration: 0,
+      playerStyle: {overflow: "hidden"}
     }
     this.playerAudio = this.playerAudio.bind(this);
     this.togglePlay = this.togglePlay.bind(this);
+    this.prev = this.prev.bind(this);
+    this.overflow = this.overflow.bind(this)
   }
 
   playerAudio() {
@@ -29,6 +30,7 @@ class Player extends React.Component{
       <audio
         onCanPlay = {() => this.setState({duration: document.getElementById("playerAudio").duration})}
         onTimeUpdate = {() => this.setState({currTime: document.getElementById("playerAudio").currentTime})}
+        onEnded = {() => this.props.next(this.props.playlist)}
         id="playerAudio"
         controls={false}
         autoPlay={true}
@@ -36,35 +38,66 @@ class Player extends React.Component{
     );
   }
 
+  setVolume(vol) {
+    const audio = document.getElementById("playerAudio");
+    audio.volue = vol;
+  }
 
-
-  togglePlay() {
-    const audio = document.getElementById("playerAudio")
-    if (this.state.playing === false) {
-      this.setState({playing: true})
-      audio.play()
+  prev() {
+    const audio = document.getElementById("playerAudio");
+    if (audio.currentTime < 5) {
+      this.props.prev(this.props.playlist);
     } else {
-      this.setState({playing: false})
-      audio.pause()
+      audio.currentTime = 0;
     }
   }
 
-  render() {
-    if (this.props.song === null) {
-      return null
+  togglePlay() {
+    const audio = document.getElementById("playerAudio");
+    if (this.props.playing === false) {
+      this.props.play(this.props.song.id, this.props.playlist);
+      audio.play();
     } else {
-      return(
-        <div className="player">
-          <PlayerControls togglePlay={this.togglePlay}/>
-          <ProgressBar 
-            currTime={this.state.currTime}
-            totalTime={this.state.duration}/>
-          <VolumeControl />
-          <SongInfo song={this.props.song}/>
-          {this.playerAudio()}
-        </div>
-      )
+      this.props.pause();
+      audio.pause();
     }
+  } 
+
+  overflow() {
+    this.setState({playerStyle: {overflow: "visible"}})
+  }
+
+  render() {
+    let playerClass;
+    let songInfo;
+    if (this.props.song === null) {
+      playerClass = "playerHidden"
+      songInfo = {title: ""}
+    } else {
+      playerClass = "playerShow"
+      songInfo = this.props.song;
+    }
+    const audio = document.getElementById("playerAudio");
+    return(
+      <div className={`player ${playerClass}`}
+      style={this.state.playerStyle}>
+        <PlayerControls 
+          playing={this.props.playing}
+          togglePlay={this.togglePlay}
+          next={() => this.props.next(this.props.playlist)}
+          prev={this.prev}/>
+        <ProgressBar 
+          currTime={this.state.currTime}
+          totalTime={this.state.duration}
+          seek={(time) => {audio.currentTime = time}}/>
+        <VolumeControl 
+          overflow={this.overflow}
+          setvol = {(vol) => {audio.volume = vol}}/>
+        <SongInfo song={songInfo}/>
+        {this.playerAudio()}
+      </div>
+    )
+    
   }
 }
 

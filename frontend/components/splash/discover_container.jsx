@@ -3,6 +3,7 @@ import * as SongActions from "../../actions/song_actions";
 import * as UiActions from "../../actions/ui_actions";
 import Discover from "./discover"
 
+
 const mSTP = (state, ownProps) => {
   return({
     songs: state.entities.songs,
@@ -13,7 +14,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch, ownProps) => {
   return({
     getAllSongs: () => dispatch(SongActions.getAllSongs()),
-    playSong: (id) => dispatch(SongActions.playSong(id)),
+    playSong: (id, playlist) => dispatch(SongActions.playSong(id, playlist)),
   });
 };
 

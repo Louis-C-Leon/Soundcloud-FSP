@@ -18,7 +18,7 @@ class SongSplash extends React.Component {
       <>
         <img className="songArt"
         src={source}
-        onClick={() => this.playSong(this.props.song.id)}/>
+        onClick={() => this.playSong(this.props.song.id, this.props.playlist)}/>
         <div className="songInfo">
         <div>{this.props.song.title}</div>
         </div>

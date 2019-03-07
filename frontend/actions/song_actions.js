@@ -4,7 +4,10 @@ export const RECEIVE_ALL_SONGS = "RECEIVE_ALL_SONGS";
 export const RECEIVE_SONG = "RECEIVE_SONG";
 export const RECEIVE_SONG_ERRORS = "RECEIVE_SONG_ERRORS";
 export const REMOVE_SONG = "REMOVE_SONG";
-export const PLAY_SONG = "PLAY_SONG"
+export const PLAY_SONG = "PLAY_SONG";
+export const PREV_SONG = "PREV_SONG";
+export const NEXT_SONG = "NEXT_SONG";
+export const PAUSE_SONG = "PAUSE_SONG";
 
 export const receiveAllSongs = (songs) => {
   return({
@@ -27,10 +30,39 @@ export const removeSong = (id) => {
   });
 }
 
-export const playSong = (id) => {
+export const pauseSong = () => {
+  return({
+    type: PAUSE_SONG,
+  })
+}
+
+export const playSong = (id, playlist) => {
+  const next = playlist[Math.floor(Math.random() * playlist.length)];
+  const prev = playlist[Math.floor(Math.random() * playlist.length)];
+  
   return({
     type: PLAY_SONG,
     songId: id,
+    prevSong: prev,
+    nextSong: next
+  })
+}
+
+export const nextSong = (playlist) => {
+  const next = playlist[Math.floor(Math.random() * playlist.length)];
+
+  return({
+    type: NEXT_SONG,
+    nextSong: next,
+  })
+}
+
+export const prevSong = (playlist) => {
+  const prev = playlist[Math.floor(Math.random() * playlist.length)];
+
+  return({
+    type: PREV_SONG,
+    prevSong: prev,
   })
 }
 

@@ -10,17 +10,126 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  transition: height .4s;
+  font-family: "Lucida Grande"; 
+  font-size: 11px;
+}
+
+.progressBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.elapsedTime {
+  color: #FF5500
+}
+
+.volumeControls {
+  position: relative;
+}
+
+.volumeScrubber {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+  margin: 3px;  
+}
+
+.volumeBar {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  left: 40%;
+  z-index: 5;
+  transition: height .3s, width .4s;
+}
+
+.volumeBarHide {
+  height: 0px;
+  width: 0px;
+}
+
+.volumeBarShow {
+  border: 1px solid #CECECE;
+  opacity: 1;
+  height: 120px;
+  width: 30px;
+  background-color: #F2F2F2;
+}
+
+.selectedVolume {
+  width: 0px;
+  border: 1px solid orangered;
+}
+
+.remainingVolume {
+  width: 0px;
+  border: 1px solid gray;
+}
+
+.playerHidden {
+  height: 0px;
+  overflow: hidden;
+}
+
+.playerControls{
+  align-items: center;
+  display:flex;
+  height: 100%;
+}
+
+.playerButton{
+  opacity: .6;
+  height: 15px;
+  width: auto;
+  margin-left: 20px
+}
+
+.playerButton:hover {
+  cursor: pointer;
+}
+
+#prevButton {
+  transform: scaleX(-1);
+  color-adjust: rgb(255,255,255);
 }
 
 .progressBar {
-  width: 50%
+  margin-left: 12px;
+  margin-right: 12px;
+  width: 70%;
+  height: 30px;
 }
 
-.tracker {
-  background-color: orangered;
+.progressBar:hover {
+  cursor: pointer;
+}
+
+
+.trackerHidden {
+  z-index: 3;
   border-radius: 50%;
-  height: 7px;
-  width: 7px;
+  height: 0px;
+  width: 0px;
+  opacity: 0;
+  border: 4px #FF5500;  
+  transition: opacity .5s;
+}
+
+.trackerVisible {
+  transition: opacity .5s;
+  opacity: 1;
+  z-index: 3;
+  border-radius: 50%;
+  height: 0px;
+  width: 0px;
+  border: 4px solid #FF5500;
 }
 
 .tracker:hover {
@@ -35,10 +144,29 @@
 .songPlayed {
   z-index: 3;
   height: 0px;
-  border: .5px solid orangered;
+  border: .5px solid #FF5500
 }
 
 .songRemaining {
   height: 0px;
   border: .5px solid gray
+}
+
+.playerInfo {
+  flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  width: 300px;
+  margin-right: 100px;
+  margin-left: 50px;
+}
+
+.playerInfoText {
+  display: flex;
+}
+
+.playerInfoImage {
+  padding: 5px;
+  width: 35px;
+  height: 35px;
 }

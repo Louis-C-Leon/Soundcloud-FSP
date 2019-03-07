@@ -3,7 +3,10 @@ import React from 'react';
 const SongInfo = (props) => {
   return(
     <>
-      <div>{props.song.title}</div>
+      <div className="playerInfo">
+        <img className="playerInfoImage" src={props.song.imageUrl} />
+        <div className="playerInfoText">{props.song.title}</div>
+      </div>
     </>
   )
 }
