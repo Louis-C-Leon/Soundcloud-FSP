@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 const mSTP = (state) => {
   return({
     users: state.entities.users,
+    currUser: state.session.id,
   })
 }
 

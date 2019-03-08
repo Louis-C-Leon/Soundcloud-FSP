@@ -8,7 +8,7 @@ const SongsReducer = (state = {}, action) => {
   
 
   Object.freeze(state);
-  const newState = Object.assign({}, state)
+  let newState = Object.assign({}, state)
   switch(action.type) {
     case SongActions.RECEIVE_ALL_SONGS:
       return action.songs;

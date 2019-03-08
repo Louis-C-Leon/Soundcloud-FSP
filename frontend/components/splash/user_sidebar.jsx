@@ -43,7 +43,9 @@ class UserSidebar extends React.Component {
           } else {
             imgSrc = user.photoUrl;
           }
-          return(<UserSidebarShow user={user} imgSrc={imgSrc} clickEvent={(id) => {this.getRedirect(id)}}/>)
+          if (user.id !== this.props.currUser) {
+           return(<UserSidebarShow user={user} imgSrc={imgSrc} clickEvent={(id) => {this.getRedirect(id)}}/>);
+          }
         })}
       </div>
     );

@@ -63,7 +63,9 @@ class UploadForm extends React.Component {
         song={this.state.song}
         coverArt={this.state.coverArt}
         title={this.state.song.name}
-        createSong={this.props.createSong}
+        createSong={(song) => {
+          this.props.createSong(song).then(() => {this.setState({redirect: "/users/you"})})}}
+        cancel={() => this.setState({redirect: "/"})}
         userId={this.props.userId}/>
       );
     }

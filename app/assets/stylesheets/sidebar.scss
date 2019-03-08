@@ -27,11 +27,13 @@
 }
 
 .userSidebarPic {
+  opacity: .85;
   height: 100%;
   width: auto;
 }
 
-.userSidebarPic {
+.userSidebarPic:hover {
+  opacity: 1;
   cursor: pointer;
 }
 

@@ -8,7 +8,7 @@
   background-color: #F2F2F2;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   transition: height .4s;
   font-family: "Lucida Grande"; 
@@ -23,7 +23,8 @@
 }
 
 .elapsedTime {
-  color: #FF5500
+  margin-left: 10px;
+  color: #FF5500;
 }
 
 .volumeControls {
@@ -44,8 +45,8 @@
   flex-direction: column;
   align-items: center;
   position: absolute;
-  bottom: 20px;
-  left: 40%;
+  bottom: 25px;
+  left: 30%;
   z-index: 5;
   transition: height .3s, width .4s, opacity .2s;
 }
@@ -107,7 +108,7 @@
 .progressBar {
   margin-left: 12px;
   margin-right: 12px;
-  width: 70%;
+  width: 90%;
   height: 30px;
 }
 
@@ -166,11 +167,13 @@
 }
 
 .playerInfoText {
+  color: rgb(155, 155, 155);
   display: flex;
 }
 
 .playerInfoImage {
   padding: 5px;
+  padding-right: 10px;
   width: 35px;
   height: 35px;
 }

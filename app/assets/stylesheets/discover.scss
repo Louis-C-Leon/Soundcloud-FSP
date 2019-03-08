@@ -1,5 +1,6 @@
 .songSplash {
   padding: 20px;
+  padding-top: 50px;
   position: absolute;
   display: flex;
   width: 70%;
@@ -31,7 +32,7 @@
   background-color:white;
   border: 1px solid #E5E5E5;
   position: absolute;
-  z-index: 3;
+  z-index: 1;
   transition: width .3s, height .3s, opacity .3s;
 }
 
@@ -129,6 +130,7 @@
 
 .discoverHeader {
   position: absolute;
+  top: 20px;
 }
 
 .userSidebarShow {

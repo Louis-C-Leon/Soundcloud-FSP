@@ -17,8 +17,7 @@ const mDTP = (dispatch) => {
   return({
     getUser: (id) => dispatch(UserActions.getUser(id)),
     openModal: () => dispatch(UiActions.openModal("session")),
-    destroySong: (id) => dispatch(SongActions.destroySong(id)),
-  })
+    destroySong: (id) => dispatch(SongActions.destroySong(id))})
 }
 
 export default withRouter(connect(mSTP, mDTP)(UserPage))

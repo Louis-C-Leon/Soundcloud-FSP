@@ -10,7 +10,6 @@ class UserPage extends React.Component {
     this.state = {
       user: null,
       songs: [],
-      urlMatch: props.match.params.user,
       edit: "false",
     }
 
@@ -38,16 +37,17 @@ class UserPage extends React.Component {
   }
 
 
-  componentDidUpdate() {
-    if (this.props.match.params.user !== this.state.urlMatch) {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.user !== this.props.match.params.user) {
       this.getUser();
-      this.setState({urlMatch: this.props.match.params.user});
     }
-  }
+  } 
 
-  edit() {
-    if (this.state.edit === "true") {
-      return(<div className="editButton" onClick={() => this.props.destroySong(song)}>Delete Song</div>);
+  edit(id) {
+    if(this.props.songs[id] === undefined) {
+      return null;
+    } else if (this.state.edit === "true") {
+      return(<div className="editButton" onClick={() => {this.props.destroySong(id);}}>Delete Song</div>);
     } else {
       return null;
     }
@@ -62,7 +62,6 @@ class UserPage extends React.Component {
   }
 
   render() {
-    // debugger;
     if (this.props.match.params.user && this.props.currUser === null) {
       this.props.openModal();
       return <Redirect to="/discover" />
@@ -73,22 +72,25 @@ class UserPage extends React.Component {
       } else {
         imgSrc = this.state.user.photoUrl;
       }
+      const stockImage = `${window.images.stockPhotos[Math.floor(Math.random()*3)]}`
+      debugger;
       return(
         <>
         {this.redirect()}
-        <div className="userHeader">
+        <div className="userHeader" style={{backgroundImage: `url(${stockImage})`, backgroundPosition: "center", backgroundSize: "cover"}}>
           <div className="userPageProfileContainer">
             <img className="userPageProfile" src={imgSrc}/>
           </div>
           <div className="screenName">{this.state.user.screen_name}</div>
         </div>
         <div className="userPageTitle">Tracks</div>
-        {this.state.songs.map((song) => {return(
-          <div className="songContainer">
-            <SongContainer key={song} song={this.props.songs[song]} />
-            {this.edit()}
-          </div>          
-        )})}
+        {Object.keys(this.props.songs).map((songId) => {
+          if (this.props.songs[songId].user_id === this.state.user.id) {
+            return(<div className="songContainer" style={{marginTop: "30px"}}>
+            <SongContainer key={songId} song={this.props.songs[songId]} />
+            {this.edit(songId)}
+          </div>
+        )}})}
         </>
       )
       } else {
