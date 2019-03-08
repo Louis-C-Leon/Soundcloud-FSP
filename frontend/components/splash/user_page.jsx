@@ -73,12 +73,11 @@ class UserPage extends React.Component {
         imgSrc = this.state.user.photoUrl;
       }
       const stockImage = `${window.images.stockPhotos[Math.floor(Math.random()*3)]}`
-      debugger;
       return(
         <>
         {this.redirect()}
-        <div className="userHeader" style={{backgroundImage: `url(${stockImage})`, backgroundPosition: "center", backgroundSize: "cover"}}>
-          <div className="userPageProfileContainer">
+        <div key="userHeader" className="userHeader" style={{backgroundImage: `url(${stockImage})`, backgroundPosition: "center", backgroundSize: "cover"}}>
+          <div key="userProfile" className="userPageProfileContainer">
             <img className="userPageProfile" src={imgSrc}/>
           </div>
           <div className="screenName">{this.state.user.screen_name}</div>
@@ -87,7 +86,7 @@ class UserPage extends React.Component {
         {Object.keys(this.props.songs).map((songId) => {
           if (this.props.songs[songId].user_id === this.state.user.id) {
             return(<div className="songContainer" style={{marginTop: "30px"}}>
-            <SongContainer key={songId} song={this.props.songs[songId]} />
+            <SongContainer key={`userSong#${songId}`} song={this.props.songs[songId]} />
             {this.edit(songId)}
           </div>
         )}})}

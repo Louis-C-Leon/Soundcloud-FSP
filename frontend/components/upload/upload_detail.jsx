@@ -61,8 +61,6 @@ class UploadDetails extends React.Component {
     return(
       (e) => {
         this.setState({[name]: e.target.value})
-        console.log(e.target.value);
-        console.log(this.state);
       }
     )
   }

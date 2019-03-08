@@ -34,7 +34,7 @@ class SongDiscover extends React.Component {
       <>
         <div className="discoverHeader">Discover Curated Genre Playlists</div>
         {Object.keys(this.state).map( (genre) => {
-          return <SongCarousel genre={genre} playlist={this.state[genre]} />
+          return <SongCarousel key={`playlist ${genre}`}genre={genre} playlist={this.state[genre]} />
         })}
       </>
 

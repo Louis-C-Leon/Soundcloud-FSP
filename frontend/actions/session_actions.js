@@ -6,7 +6,6 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const LOGIN_USER = "LOGIN_USER";
 
 export const login = (user) => {
-  console.log("dispatched!")
   return({
     type: LOGIN_USER,
     user,
