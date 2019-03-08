@@ -1,6 +1,7 @@
 # SoundCrowd
 
 [Live Site](https://soundcrowd-fsp.herokuapp.com/)
+
 SoundCrowd is a social music app where users listen to music, upload their own songs, and view artists that they enjoy, heavily based on SoundCloud.com. The project was built within a two-week period using Rails and PostgreSQL on the backend and React/Redux on the frontend. The site is still missing several key features which I hope to add in updates shortly.
 
 
