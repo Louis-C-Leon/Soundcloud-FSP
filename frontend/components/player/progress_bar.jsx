@@ -12,7 +12,7 @@ class ProgressBar extends React.Component {
       status: "playing",
       playedStyle: {width: "0%"},
       remainingStyle: {width: "100%"},
-      totalString: `${min}:${`${sec}`.padStart(2,0)}`,
+      totalString: `AAAAAAAA`,
       elapsedString: "0:00",
       trackerClass: "trackerHidden"
     }
@@ -34,15 +34,18 @@ class ProgressBar extends React.Component {
     const remaining = 100 - played
     let minElapsed = Math.floor(props.currTime / 60);
     let secElapsed = Math.floor(props.currTime % 60);
+    const min = Math.floor(props.totalTime / 60);
+    const sec = Math.floor(props.totalTime % 60);
     
     if (state.status === "playing") {
       return({
         playedStyle: {width: `${played}%`},
         remainingStyle: {width: `${remaining}%`},
-        elapsedString: `${minElapsed}:${`${secElapsed}`.padStart(2,0)}`
+        elapsedString: `${minElapsed}:${`${secElapsed}`.padStart(2,0)}`,
+        totalString: `${min}:${`${sec}`.padStart(2,0)}`
       });
     } else {
-      return null;
+      return({totalString: `${min}:${`${sec}`.padStart(2,0)}`});
     }
   }
 

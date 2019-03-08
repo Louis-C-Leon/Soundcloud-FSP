@@ -26,7 +26,7 @@ class UserSidebar extends React.Component {
     if(this.state.redirect === null) {
       return null;
     } else {
-      this.setState({redirect: null});
+      this.setState({redirect: null});    
       return <Redirect to={`${this.state.redirect}`} />
     }
   }
@@ -34,6 +34,7 @@ class UserSidebar extends React.Component {
   render() {
     return(
       <div className="sidebar">
+      <div className="sidebarHeader">Up and Coming Artists</div>
       {this.redirect()}
         {Object.values(this.props.users).map( (user) => {
           let imgSrc;

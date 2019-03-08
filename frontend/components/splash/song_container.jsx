@@ -4,8 +4,14 @@ import { strictEqual } from "assert";
 import * as SongActions from "../../actions/song_actions"
 
 const mSTP = (state, ownProps) => {
+  let myPlaylist;
+  if(ownProps.playlist === undefined) {
+    myPlaylist = Object.keys(state.entities.songs);
+  } else {
+    myPlaylist = ownProps.playlist;
+  }
   return({
-    playlist: Object.keys(state.entities.songs),
+    playlist: myPlaylist,
     currSong: state.ui.playingSong,
   });
 }

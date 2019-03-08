@@ -1,5 +1,6 @@
 import React from 'react';
 import SongContainer from "./song_container";
+import SongCarousel from "./song_carousel";
 
 class SongDiscover extends React.Component {
 
@@ -23,22 +24,30 @@ class SongDiscover extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     let result;
     if(Object.keys(this.props.songs) === 0) {
-      result = []
+      result = [];
     } else {
       result = Object.values(this.props.songs)
     }
     return(
       <>
-        
-          {Object.values(result).map((curr_song) =>{
-            return(<div className="songContainer">
-              <SongContainer key={curr_song.id} 
-                song={curr_song} />
-            </div>)})}
+        <div className="discoverHeader">Discover Curated Genre Playlists</div>
+        {Object.keys(this.state).map( (genre) => {
+          return <SongCarousel genre={genre} playlist={this.state[genre]} />
+        })}
       </>
+
+
+
+      // <>
+        
+      //     {Object.values(result).map((curr_song) =>{
+      //       return(<div className="songContainer">
+      //         <SongContainer key={curr_song.id} 
+      //           song={curr_song} />
+      //       </div>)})}
+      // </>
     );
   }
   

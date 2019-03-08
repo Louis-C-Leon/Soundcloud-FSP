@@ -3,7 +3,7 @@ import { AuthRoute, ProtectedRoute } from "../../util/route_util";
 import * as UiActions from '../../actions/ui_actions';
 import * as SessionActions from '../../actions/session_actions';
 import { connect } from "react-redux";
-import { Link, Redirect} from "react-router-dom";
+import { Link, Redirect, NavLink} from "react-router-dom";
 
 const mDTP = (dispatch) => {
   return({
@@ -43,8 +43,11 @@ const LoggedIn = (props) => {
   }
   return(
     <>
-      <div className="navbarProfile"
-      onClick={props.logoutUser}>
+      <Link to="/users/you" id="profileLink" />
+      <div className="navbarProfile" onClick={() => {
+        const link = document.getElementById("profileLink");
+        link.click();
+      }}>
         <div className="navbarPicContainer">
           <img className="navbarPic" src={imageSource}/>
         </div>
@@ -85,11 +88,11 @@ class SessionNavBar extends React.Component{
         </div>
         {this.redirect()}
         <ProtectedRoute component={LoggedInContainer} />
-        <div className="options subButton"><img src={window.images.more} width="100%" height="100%"/></div>
+        <div className="options subButton" onClick = {() => this.props.logoutUser()}><img src={window.images.more} width="100%" height="100%"/></div>
       </>
     );
   }
 }
 
 
-export default SessionNavBar;
+export default connect(null, mDTP)(SessionNavBar);

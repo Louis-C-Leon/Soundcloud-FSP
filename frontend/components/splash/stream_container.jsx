@@ -1,11 +1,20 @@
 import { connect } from "react-redux";
 import * as UiActions from "../../actions/ui_actions";
+import * as SongActions from "../../actions/song_actions";
 import Stream from "./stream"
 
-const mDTP = (dispatch) => {
+const mSTP = (state, ownProps) => {
   return({
-    openModal: () => {dispatch(UiActions.openModal("session"))},
-  })
-}
+    songs: state.entities.songs,
+    artists: state.entities.users,
+  });
+};
 
-export default connect(null, mDTP)(Stream);
+const mDTP = (dispatch, ownProps) => {
+  return({
+    getAllSongs: () => dispatch(SongActions.getAllSongs()),
+    playSong: (id, playlist) => dispatch(SongActions.playSong(id, playlist)),
+  });
+};
+
+export default connect(mSTP, mDTP)(Stream);

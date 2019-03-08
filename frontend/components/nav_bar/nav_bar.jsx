@@ -1,7 +1,7 @@
 import React from 'react';
 import SessionNavBar from './session_nav_bar';
 import NavBarLogo from './nav_bar_logo';
-import  { NavLink } from 'react-router-dom';
+import  { NavLink, Link} from 'react-router-dom';
 
 class NavBar extends React.Component {
   render() {
@@ -23,9 +23,7 @@ class NavBar extends React.Component {
           </NavLink>
         </div>
         <div className="searchContainer">
-          <form>
-            <input type="text" className="navSearch" placeholder="Search" />
-          </form>
+          <input type="text" className="navSearch" placeholder="You can type what you want in here, but you can't search yet! " />
         </div>
         <SessionNavBar user={this.props.user}/>
       </div>

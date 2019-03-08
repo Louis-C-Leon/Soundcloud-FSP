@@ -14,13 +14,123 @@
 .songContainer {
   padding-top: 20px;
   margin: 10px;
+  position: relative;
+  transition: left .5s ease-in-out;
+}
+
+.carouselButton {
+  font-family: "Lucida Grande";
+  font-size: 18px;
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 3px;
+  background-color:white;
+  border: 1px solid #E5E5E5;
+  position: absolute;
+  z-index: 3;
+  transition: width .3s, height .3s, opacity .3s;
+}
+
+.carouselButton:hover {
+  cursor: pointer;
+  color: orangered;
+  border: 1px solid orangered;
+}
+
+.leftButton {
+
+}
+
+.carouselHeader {
+  margin-top: 15px;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.discoverHeader {
+  font-size: 25px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+
+.songInfo {
+  margin-top: 15px;
+  font-weight: 50;
+  font-size: 14px;
+  color: rgb(167, 167, 167);
+}
+
+.playIcon {
+  position: absolute; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: hue-rotate(0);
+  height: 175px;
+  width: 175px;
+  bottom: 15%;
+  transition: opacity .3s ease-in-out;
+}
+
+.playIcon:hover {
+  cursor: pointer;
+}
+
+.playIconHidden {
+  opacity: 0;
+}
+
+.playIconShow {
+  opacity: .85;
+}
+
+.popupIcon {
+  height: 50%;
+  width: auto;
+}
+
+
+.rightButton {
+  left: 97%;
 }
 
 .songArt {
+  box-shadow: 2px 2px 3px 2px rgb(167, 167, 167);
   width: 175px;
   height: 175px;
 }
 
 .songCarousel {
   display: flex;
+  align-items: center;                
+  width: 100%;
+  overflow: hidden;
+}
+
+.carouselContainer {
+  border-top: 1px solid rgb(167, 167, 167);
+  margin-top: 50px;
+  margin-right:10px;
+  margin-left: 10px;
+  width: 100%;
+}
+
+
+.carouselHide {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.discoverHeader {
+  position: absolute;
+}
+
+.userSidebarShow {
+  margin-top: 20px;
 }

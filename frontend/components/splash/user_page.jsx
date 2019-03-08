@@ -6,23 +6,27 @@ class UserPage extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.getUser = this.getUser.bind(this);
-    this.edit = this.edit.bind(this);
-    this.redirect = this.redirect.bind(this);
-
+    
     this.state = {
       user: null,
       songs: [],
       urlMatch: props.match.params.user,
       edit: "false",
     }
+
+    this.getUser = this.getUser.bind(this);
+    this.edit = this.edit.bind(this);
+    this.redirect = this.redirect.bind(this);
+
   } 
 
   getUser() {
     const userParams = this.props.match.params.user;
     if (userParams === "you") {
       const you = this.props.users[this.props.currUser];
+      if(you === undefined) {
+        return null
+      }
       this.setState({user: you, songs: you.songs, edit: "true"})
     } else {
       this.props.getUser(userParams).then((res) => {this.setState({user: res.user, songs: res.user.songs, edit: "false"})});
@@ -43,7 +47,7 @@ class UserPage extends React.Component {
 
   edit() {
     if (this.state.edit === "true") {
-      return(<div className="editButton" onClick={() => this.props.destroySong(song)}>Edit Song</div>);
+      return(<div className="editButton" onClick={() => this.props.destroySong(song)}>Delete Song</div>);
     } else {
       return null;
     }
@@ -58,7 +62,11 @@ class UserPage extends React.Component {
   }
 
   render() {
-    if (this.state.user !== null) {
+    // debugger;
+    if (this.props.match.params.user && this.props.currUser === null) {
+      this.props.openModal();
+      return <Redirect to="/discover" />
+    } else if (this.state.user !== null) {
       let imgSrc;
       if (this.state.user.photoUrl === undefined) {
         imgSrc = window.images.defaultProfile;

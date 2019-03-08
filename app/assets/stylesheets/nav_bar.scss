@@ -142,6 +142,14 @@ input:focus {
   border: 1px solid white;
 }
 
+#profileLink {
+  display: none;  
+}
+
+#homeLink {
+  display: none;
+}
+
 .signupButton:hover {
   cursor: pointer;
 }
@@ -167,6 +175,10 @@ input:focus {
   flex-direction: row;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.navbarProfile:hover {
+  cursor: pointer;
 }
 
 .username {

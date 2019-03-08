@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from "./store/store";
-import * as SessionActions from "./actions/session_actions";
 import Root from "./components/root";
 
 document.addEventListener("DOMContentLoaded", () =>{
@@ -38,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () =>{
   
   const root = document.getElementById("root")
   window.store = store;
-  window.SessionActions = SessionActions;
   ReactDOM.render(<Root store={ store } />, root);
   
 })
