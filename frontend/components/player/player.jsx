@@ -40,7 +40,7 @@ class Player extends React.Component{
 
   setVolume(vol) {
     const audio = document.getElementById("playerAudio");
-    audio.volue = vol;
+    audio.volume = vol;
   }
 
   prev() {
@@ -92,7 +92,7 @@ class Player extends React.Component{
           seek={(time) => {audio.currentTime = time}}/>
         <VolumeControl 
           overflow={this.overflow}
-          setvol = {(vol) => {audio.volume = vol}}/>
+          setVol = {(vol) => {audio.volume = vol}}/>
         <SongInfo song={songInfo}/>
         {this.playerAudio()}
       </div>

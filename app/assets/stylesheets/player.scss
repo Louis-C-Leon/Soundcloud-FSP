@@ -47,12 +47,13 @@
   bottom: 20px;
   left: 40%;
   z-index: 5;
-  transition: height .3s, width .4s;
+  transition: height .3s, width .4s, opacity .2s;
 }
 
 .volumeBarHide {
   height: 0px;
   width: 0px;
+  opacity:0;
 }
 
 .volumeBarShow {
@@ -64,11 +65,13 @@
 }
 
 .selectedVolume {
+  z-index: 10;
   width: 0px;
   border: 1px solid orangered;
 }
 
 .remainingVolume {
+  z-index: 10;
   width: 0px;
   border: 1px solid gray;
 }

@@ -7,6 +7,7 @@ class VolumeControl extends React.Component {
     this.state = {
       volumeBar: "volumeBarHide",
       trackerClass: "trackerHidden",
+      scrubber: "volumeBarHide",
       status: "playing",
       volStyle: {height: "100%"},
       barStyle: {height: "0%"}
@@ -23,41 +24,49 @@ class VolumeControl extends React.Component {
       bottom = 0;
       height = 0;
     } else {
-      bottom = bar.offsetTop;
-      height = bar.offsetHeight;
+      bottom = bar.getBoundingClientRect().bottom;
+      height = bar.getBoundingClientRect().height;
     }
 
     return(
       <div className="volumeControls">
 
         <img className="playerButton" src={window.images.volume} 
-          onMouseEnter={() => {this.setState({volumeBar: "volumeBarShow"});
+          onMouseEnter={() => {this.setState({volumeBar: "volumeBarShow", scrubber: "volumeScrubber"});
             this.props.overflow()}}
-          onMouseLeave={() => {this.setState({volumeBar: "volumeBarHide"})}}/>
+            onMouseLeave={() => {this.setState({volumeBar: "volumeBarHide", scrubber: "volumeBarHide"})}}/>
         
         <div className={`${this.state.volumeBar} volumeBar`} 
-          onMouseOver={() => {this.setState({volumeBar: "volumeBarShow"})}}
-          onMouseLeave={() => {this.setState({volumeBar: "volumeBarHide"})}}>
+          onMouseOver={() => {this.setState({volumeBar: "volumeBarShow", scrubber: "volumeScrubber"})}}
+          onMouseLeave={() => {this.setState({volumeBar: "volumeBarHide", scrubber: "volumeBarHide"})}}>
           
-          <div id="volUiHelper" className="volumeScrubber" onMouseMove={(e) => {
+          <div id="volUiHelper" className={this.state.scrubber} onMouseMove={(e) => {
               if(this.state.status === "seeking") {
-                const barHeight = ((e.clientY - bottom) / (height)) * 100;
+                const newVol = ((bottom - e.clientY) / (height))
+                this.props.setVol(newVol);
+                const barHeight = newVol * 100;
                 const remaining = 100 - barHeight;
-                this.setState({volStyle: {height: `${barHeight}%`}}, {barStyle: {height: `${remaining}%`}})
+                this.setState({volStyle: {height: `${barHeight}%`}, barStyle: {height: `${remaining}%`}})
               }
             }}
-            onMouseDown = {() => this.setState({status: "seeking"})}
+            onMouseDown = {(e) => {
+              this.setState({status: "seeking"})
+              const barHeight = ((bottom - e.clientY) / (height)) * 100;
+              const remaining = 100 - barHeight;
+              this.setState({volStyle: {height: `${barHeight}%`}, barStyle: {height: `${remaining}%`}})}}
             onMouseUp = {(e) => {
-              const newVol = ((e.clientY - bottom) / (height))
-              this.setVol(newVol);
-              console.log(newVol);
+              const newVol = ((bottom - e.clientY) / (height))
+              this.props.setVol(newVol);
+              this.setState({status: "playing"})
             }}
             onMouseEnter={() => this.setState({trackerClass: "trackerVisible"})} 
-            onMouseLeave={() => this.setState({trackerClass: "trackerHidden"})}>
+            onMouseLeave={() => {
+              this.setState({trackerClass: "trackerHidden"})
+              this.setState({status: "playing"})}}>
 
-            <div className="selectedVolume" className={this.state.volStyle}/>
+            <div className="remainingVolume" style={this.state.barStyle}/>
             <div className={this.state.trackerClass} />
-            <div className="remainingVolume" className={this.state.barStyle}/>             
+            <div className="selectedVolume" style={this.state.volStyle}/>             
 
           </div>
         </div>    

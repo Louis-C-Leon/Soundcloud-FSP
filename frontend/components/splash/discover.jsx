@@ -5,13 +5,25 @@ class SongDiscover extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {};
   }
 
   componentDidMount() {
-    this.props.getAllSongs();
+    this.props.getAllSongs().then(
+      () => Object.values(this.props.songs).forEach( 
+        (song) => {
+          if(this.state[song.genre]=== undefined) {
+            this.setState({[song.genre]: [song]})
+          } else {
+            this.setState({[song.genre]: this.state[song.genre].concat([song])})
+          }
+        }
+        )
+    );
   }
 
   render() {
+    console.log(this.state);
     let result;
     if(Object.keys(this.props.songs) === 0) {
       result = []
