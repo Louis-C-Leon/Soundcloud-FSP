@@ -19,14 +19,14 @@ class SongDiscover extends React.Component {
       result = Object.values(this.props.songs)
     }
     return(
-      <div className="songSplash">
+      <>
         
           {Object.values(result).map((curr_song) =>{
             return(<div className="songContainer">
               <SongContainer key={curr_song.id} 
                 song={curr_song} />
             </div>)})}
-      </div>
+      </>
     );
   }
   

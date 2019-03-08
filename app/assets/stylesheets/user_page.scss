@@ -1,0 +1,33 @@
+.userHeader {
+  display: flex;
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: black;
+  height: 300px;
+}
+
+.userPageProfileContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+.userPageProfile {
+  height: 100%;
+  width: auto;
+}
+
+.screenName {
+  color: white;
+  font-size: 25px;
+}
+
+.userPageTitle {
+  font-size: 20px;
+  width: 100%;
+}

@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.includes(:songs).all
   end
 
   def create
@@ -19,7 +19,13 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:songs).find(params[:id])
+    @user = User.includes(:songs).find_by(id: params[:id])
+    if @user
+      render :show;
+    else
+      render json: ["User not found"] ,status: 404;
+    end
+    
   end
 
   def update

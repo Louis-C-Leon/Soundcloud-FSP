@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import NavBar from './nav_bar'
+import { withRouter } from "react-router-dom"
 
 const mSTP = (state, ownProps) => {
   return({
@@ -7,4 +8,4 @@ const mSTP = (state, ownProps) => {
   })
 }
 
-export default connect(mSTP)(NavBar)
+export default withRouter(connect(mSTP)(NavBar))

@@ -17,13 +17,15 @@ class NavBar extends React.Component {
           className="navButton" activeClassName="activeButton">
           Stream
           </NavLink>
-          <NavLink to={`/you/library`}
+          <NavLink to={`/users/you`}
           className="navButton" activeClassName="activeButton">
           Library
           </NavLink>
         </div>
         <div className="searchContainer">
-          <input type="text" className="navSearch" placeholder="Search" />
+          <form>
+            <input type="text" className="navSearch" placeholder="Search" />
+          </form>
         </div>
         <SessionNavBar user={this.props.user}/>
       </div>

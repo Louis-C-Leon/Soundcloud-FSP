@@ -18,16 +18,11 @@ const SongsReducer = (state = {}, action) => {
     case SongActions.REMOVE_SONG:
       delete newState[action.songId];
       return newState;
-    case UserActions.RECEIVE_CURRENT_USER:
+    case UserActions.RECEIVE_USER:
       Object.values(action.songs).forEach((song) => {
         newState[song.id] = song;
       })
       return newState;
-    case UserActions.RECEIVE_USER:
-    Object.values(action.songs).forEach((song) => {
-      newState[song.id] = song;
-    })
-    return newState;
     default:
       return state;
   }

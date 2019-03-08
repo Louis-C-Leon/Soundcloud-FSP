@@ -7,9 +7,13 @@ const usersReducer = (state = nullState, action) => {
   Object.freeze(state);
   const newState = Object.assign({}, state)
   switch(action.type) {
-    case UserActions.RECEIVE_CURRENT_USER:
-      newState[action.user.id] = action.user;
+    case UserActions.RECEIVE_USER:
+      const flatUser = action.user;
+      flatUser.songs= flatUser.songs.map( (song) => {return(song.id)});
+      newState[action.user.id] = flatUser;
       return newState;
+    case UserActions.RECEIVE_USERS:
+      return action.users;
     default:
       return state;
   }
