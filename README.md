@@ -17,7 +17,7 @@ SoundCrowd is a social music app where users listen to music, upload their own s
 
 Once a user clicks on a song, SoundCrowd displays a footer music player that continues playing until they pause it, even if they visit a different page. This was done by storing the index of the currently playing song in the Redux state, and mapping the current song to the props of the player component. The player component is also flexible and easy to style with CSS, unlike the default HTML audio player. The component hides the underlying audio component, and interfaces with it using various event listeners. One example of this is the progress bar sub-component, which allows easy navigation of a song's runtime:
 
-'''
+```
 <div className="progressBarContainer">
   <span className="elapsedTime">{this.state.elapsedString}</span>
     <div className="progressBar" id="help!" onMouseMove={(e) => {
@@ -42,7 +42,7 @@ Once a user clicks on a song, SoundCrowd displays a footer music player that con
   </div>
   {this.state.totalString}
 </div>
-'''
+```
 
 When the user presses the mouse on the progress bar, its status in local state is set to "seeking", and it tracks the mouse's X coordinates, adjusting the appearance of the progress bar by dynamically changing CSS styling. When the user releases the mouse, the progress bar calculates the new elapsed time and sends it to the parent player component using its "seek" method.
 
