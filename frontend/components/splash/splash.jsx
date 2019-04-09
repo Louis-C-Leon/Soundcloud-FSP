@@ -7,6 +7,7 @@ import UploadFormContainer from "../upload/upload_container";
 import DiscoverContainer from "./discover_container";
 import UserPageContainer from "./user_page_container";
 import StreamContainer from "./stream_container";
+import SongShowContainer from "./song_page_container";
 
 const Splash = () => {
   return(
@@ -18,7 +19,7 @@ const Splash = () => {
         <Route path={"/users/:user"} render={() => {return(<UserPageContainer />)}} />
         <Route path={"/stream"} render={() => {return(<StreamContainer />)}} />
         <Route path={"/upload"} render={() => {return(<UploadFormContainer />)}} />
-        <Route path={"/songs/:songId"} render={() => <h1>SONG PAGE</h1>} />
+        <Route path={"/songs/:songId"} render={() => {return(<SongShowContainer />)}} />
       </Switch>
     </div>
   );
