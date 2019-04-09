@@ -1,5 +1,4 @@
 import React from "react";
-import SongContainer from "./song_container";
 
 class SongPage extends React.Component {
 
@@ -14,13 +13,24 @@ class SongPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getSong(parseInt(this.props.match.params.songId));
+    this.props.getSong(parseInt(this.props.match.params.songId))
   }
 
   render() {
-    return(
-      <SongContainer song={this.props.song} />
-    )
+    debugger;
+    if (!this.props.song) {
+      return "Loading";
+    } else {
+      return(
+        <div className="songShowHeader">
+          <div className="songShowInfo">
+            <div className="songShowArtist">{this.props.song.title}</div>
+            <div className="songShowTitle"></div>
+            <div className="popupIcon"></div>
+          </div>
+        </div>
+      )
+    }
   }
 }
 

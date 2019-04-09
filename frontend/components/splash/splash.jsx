@@ -15,11 +15,11 @@ const Splash = () => {
       <ProtectedRoute component={UserSideBarContainer}/>
       <AuthRoute component={FillerSidebar}/>
       <Switch>
-        <Route path={"/discover"} render={() => {return(<DiscoverContainer />)}} />
-        <Route path={"/users/:user"} render={() => {return(<UserPageContainer />)}} />
-        <Route path={"/stream"} render={() => {return(<StreamContainer />)}} />
-        <Route path={"/upload"} render={() => {return(<UploadFormContainer />)}} />
-        <Route path={"/songs/:songId"} render={() => {return(<SongShowContainer />)}} />
+        <Route path={"/discover"} component={DiscoverContainer } />
+        <Route path={"/users/:user"} component={UserPageContainer} />
+        <Route path={"/stream"} component={StreamContainer} />
+        <Route path={"/upload"} component={UploadFormContainer} />
+        <Route path={"/songs/:songId"} component={SongShowContainer} />
       </Switch>
     </div>
   );

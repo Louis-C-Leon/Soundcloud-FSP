@@ -10,6 +10,7 @@ class SongDiscover extends React.Component {
   }
 
   componentDidMount() {
+    console.log("mounting");
     this.props.getAllSongs().then(
       () => Object.values(this.props.songs).forEach( 
         (song) => {
@@ -37,17 +38,6 @@ class SongDiscover extends React.Component {
           return <SongCarousel key={`playlist ${genre}`}genre={genre} playlist={this.state[genre]} />
         })}
       </>
-
-
-
-      // <>
-        
-      //     {Object.values(result).map((curr_song) =>{
-      //       return(<div className="songContainer">
-      //         <SongContainer key={curr_song.id} 
-      //           song={curr_song} />
-      //       </div>)})}
-      // </>
     );
   }
   

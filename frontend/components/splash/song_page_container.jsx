@@ -4,9 +4,10 @@ import SongShow from "./song_page";
 import * as SongActions from "../../actions/song_actions";
 
 function mSTP(state, ownProps) {
+  const song = state.entities.songs[parseInt(ownProps.match.params.songId)];
   return({
-    song: state.entities.songs[parseInt(ownProps.match.params.songId)],
-  })
+    song,
+  });
 }
 
 function mDTP(dispatch, ownProps) {
