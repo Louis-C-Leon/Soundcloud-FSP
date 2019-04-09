@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 class SongSplash extends React.Component {
 
@@ -37,7 +38,7 @@ class SongSplash extends React.Component {
             <div className={`popupIcon ${popupClass}`}/>
         </div>
         <div className="songInfo">
-        <div>{this.props.song.title}</div>
+        <Link to={`/songs/${this.props.song.id}`}>{this.props.song.title}</Link>
         </div>
       </>
     )

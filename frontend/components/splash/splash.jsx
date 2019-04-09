@@ -18,6 +18,7 @@ const Splash = () => {
         <Route path={"/users/:user"} render={() => {return(<UserPageContainer />)}} />
         <Route path={"/stream"} render={() => {return(<StreamContainer />)}} />
         <Route path={"/upload"} render={() => {return(<UploadFormContainer />)}} />
+        <Route path={"/songs/:songId"} render={() => <h1>SONG PAGE</h1>} />
       </Switch>
     </div>
   );

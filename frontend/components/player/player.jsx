@@ -41,6 +41,7 @@ class Player extends React.Component{
 
   componentDidUpdate() {
     const audio = document.getElementById("playerAudio");
+    if (audio === null) return;
     if (this.props.playing && audio.paused) {
       audio.play();
     } else if (!this.props.playing && !audio.paused) {

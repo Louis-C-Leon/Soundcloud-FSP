@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import SongSplash from "./_song_splash";
-import { strictEqual } from "assert";
 import * as SongActions from "../../actions/song_actions"
 
 const mSTP = (state, ownProps) => {
@@ -24,4 +23,4 @@ const mDTP = (dispatch, ownProps) => {
   });
 }
 
-export default connect(mSTP, mDTP)(SongSplash)
+export default connect(mSTP, mDTP)(SongSplash);
