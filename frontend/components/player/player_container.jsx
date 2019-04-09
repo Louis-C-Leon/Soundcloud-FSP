@@ -9,14 +9,8 @@ const mSTP = (state, ownProps) => {
   } else {
     curr_song = state.entities.songs[state.ui.playingSong]
   }
-  let now_playing;
-  if (state.ui.playStatus === "play") {
-    now_playing = true;
-  } else if (state.ui.playStatus === "pause") {
-    now_playing = false;
-  }
   return({
-    playing: now_playing,
+    playing: state.ui.playStatus === "play",
     song: curr_song,
     playlist: Object.keys(state.entities.songs),
   });

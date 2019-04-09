@@ -13,12 +13,14 @@ const mSTP = (state, ownProps) => {
   return({
     playlist: myPlaylist,
     currSong: state.ui.playingSong,
+    playing: state.ui.playStatus === "play",
   });
 }
 
 const mDTP = (dispatch, ownProps) => {
   return({
     playSong: (id, playlist) => dispatch(SongActions.playSong(id, playlist)),
+    pauseSong: () => dispatch(SongActions.pauseSong())
   });
 }
 

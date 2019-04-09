@@ -13,6 +13,7 @@ class Player extends React.Component{
       duration: 0,
       playerStyle: {overflow: "hidden"}
     }
+    this.audio = null;
     this.playerAudio = this.playerAudio.bind(this);
     this.togglePlay = this.togglePlay.bind(this);
     this.prev = this.prev.bind(this);
@@ -38,6 +39,15 @@ class Player extends React.Component{
     );
   }
 
+  componentDidUpdate() {
+    const audio = document.getElementById("playerAudio");
+    if (this.props.playing && audio.paused) {
+      audio.play();
+    } else if (!this.props.playing && !audio.paused) {
+      audio.pause();
+    }
+  }
+
   setVolume(vol) {
     const audio = document.getElementById("playerAudio");
     audio.volume = vol;
@@ -56,10 +66,8 @@ class Player extends React.Component{
     const audio = document.getElementById("playerAudio");
     if (this.props.playing === false) {
       this.props.play(this.props.song.id, this.props.playlist);
-      audio.play();
     } else {
       this.props.pause();
-      audio.pause();
     }
   } 
 

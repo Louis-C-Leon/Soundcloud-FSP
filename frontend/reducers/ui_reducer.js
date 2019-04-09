@@ -2,7 +2,7 @@ import * as UiActions from '../actions/ui_actions';
 import * as UserActions from '../actions/user_actions';
 import * as SongActions from "../actions/song_actions"
 
-const _nullState = { modal: null, playingSong: null, nextSong: null, prevSong: null, playStatus: "play"}
+const _nullState = { modal: null, playingSong: null, nextSong: null, prevSong: null, playStatus: "pause"}
 
 const uiReducer = (state = _nullState, action) => {
   Object.freeze(state);

@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", () =>{
       entities: {
         users: { [flatUser.id]: flatUser },
         songs: userSongs,
-      },
-      ui: {modal: null, playingSong: null}
+      }
     };
 
     store = configureStore(preloadedState);
