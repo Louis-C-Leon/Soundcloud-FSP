@@ -81,9 +81,9 @@ export const getAllSongs = () => dispatch => {
   );
 }
 
-export const getSong = (id) => {
+export const getSong = (id) => dispatch => {
   return(
-    Util.fetchSong.then(
+    Util.fetchSong(id).then(
       (res) => dispatch(receiveSong(res)),
       (err) => dispatch(receiveSongErrors(err.responseJSON)))
   );
