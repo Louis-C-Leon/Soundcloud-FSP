@@ -10,7 +10,6 @@ class SongDiscover extends React.Component {
   }
 
   componentDidMount() {
-    console.log("mounting");
     this.props.getAllSongs().then(
       () => Object.values(this.props.songs).forEach( 
         (song) => {

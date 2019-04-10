@@ -64,10 +64,10 @@ class SongCarousel extends React.Component {
         <div className={`carouselButton leftButton ${this.state.backClass}`} onClick={this.goBack}>{"<"}</div>
         <div className={`carouselButton rightButton ${this.state.forwardClass}`} onClick={this.goForward}>{">"}</div>
         {this.props.playlist.map( (curr_song) => {
-          return( <div className="songContainer" style={{left: `${this.state.offset}px`}}>
-                    <SongContainer key={`song#${curr_song}`} song={curr_song} playlist={songPlaylist}/>
-                  </div>);         
-        })}
+          return( 
+            <div className="songContainer" style={{left: `${this.state.offset}px`}}>
+              <SongContainer key={`song#${curr_song}`} song={curr_song} playlist={songPlaylist}/>
+            </div>)})}
         </div>
       </div>
     );

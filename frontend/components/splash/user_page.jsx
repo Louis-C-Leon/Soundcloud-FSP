@@ -15,8 +15,6 @@ class UserPage extends React.Component {
 
     this.getUser = this.getUser.bind(this);
     this.edit = this.edit.bind(this);
-    this.redirect = this.redirect.bind(this);
-
   } 
 
   getUser() {
@@ -53,19 +51,17 @@ class UserPage extends React.Component {
     }
   }
 
-  redirect() {
-    if(this.props.currUser === this.state.user.id) {
-      return <Redirect to="/users/you" />
-    } else {
-      return null;
-    }
-  }
-
   render() {
-    if (this.props.match.params.user && this.props.currUser === null) {
+    if (!this.state.user) {
+      return null;
+    }else if (this.props.currUser === null) {
       this.props.openModal();
       return <Redirect to="/discover" />
-    } else if (this.state.user !== null) {
+    } else if (!this.props.match.params.user){
+      return <Redirect to="/discover" />
+    } else if (this.props.match.params.user !== "you" && this.props.currUser === this.state.user.id) {
+      return <Redirect to="/users/you" />
+    } else {
       let imgSrc;
       if (this.state.user.photoUrl === undefined) {
         imgSrc = window.images.defaultProfile;
@@ -75,7 +71,6 @@ class UserPage extends React.Component {
       const stockImage = `${window.images.stockPhotos[Math.floor(Math.random()*3)]}`
       return(
         <>
-        {this.redirect()}
         <div key="userHeader" className="userHeader" style={{backgroundImage: `url(${stockImage})`, backgroundPosition: "center", backgroundSize: "cover"}}>
           <div key="userProfile" className="userPageProfileContainer">
             <img className="userPageProfile" src={imgSrc}/>
@@ -92,9 +87,7 @@ class UserPage extends React.Component {
         )}})}
         </>
       )
-      } else {
-        return null;
-      }
+    }
   }
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 class UploadDetails extends React.Component {
   constructor(props) {
@@ -10,7 +11,6 @@ class UploadDetails extends React.Component {
       genre: "other",
       description: "",
       coverUrl: this.props.coverArt,
-      redirect: null,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.requestArtwork = this.requestArtwork.bind(this);
@@ -32,8 +32,9 @@ class UploadDetails extends React.Component {
     if(this.state.coverArt !== null) {
       formData.append('song[image]', this.state.coverArt);
     }
-    this.props.createSong(formData)
-    this.setState({redirect: "/"})
+    this.props.createSong(formData).then( () => {
+      document.getElementById("uploadDetailLink").click();
+    });
   }
 
   
@@ -68,6 +69,7 @@ class UploadDetails extends React.Component {
   render() {
     return(
       <form className="uploadDetails" onSubmit={this.handleSubmit}>
+        <Link to="/users/you" className="hiddenLink" id="uploadDetailLink" />
         <img className= "uploadArtwork" onClick={this.requestArtwork} 
             src={this.state.coverUrl}/>
         <input type="file" 
@@ -124,7 +126,6 @@ class UploadDetails extends React.Component {
         <div className="uploadDetailButton saveButton" onClick={this.handleSubmit}>Save</div>
         </div>
         </div>
-        {this.props.redirect()}
       </form>
     );
   }

@@ -1,41 +1,17 @@
 import React from "react";
 import UserSidebarShow from "./user_sidebar_show";
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class UserSidebar extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      redirect: null,
-    }
-
-    this.redirect = this.redirect.bind(this);
-    this.getRedirect = this.getRedirect.bind(this);
-  }
-  
   componentDidMount() {
     this.props.getUsers()
-  }
-
-  getRedirect(id) {
-    this.setState({redirect: `/users/${id}`});
-  }
-
-  redirect() {
-    if(this.state.redirect === null) {
-      return null;
-    } else {
-      this.setState({redirect: null});    
-      return <Redirect to={`${this.state.redirect}`} />
-    }
   }
 
   render() {
     return(
       <div className="sidebar">
-      <div className="sidebarHeader">Up and Coming Artists</div>
-      {this.redirect()}
+      <div className="sidebarHeader">Artists You Might Like</div>
         {Object.values(this.props.users).map( (user) => {
           let imgSrc;
           if (user.photoUrl === undefined) {
@@ -44,7 +20,7 @@ class UserSidebar extends React.Component {
             imgSrc = user.photoUrl;
           }
           if (user.id !== this.props.currUser) {
-           return(<UserSidebarShow key={`user#${user.id}`}user={user} imgSrc={imgSrc} clickEvent={(id) => {this.getRedirect(id)}}/>);
+           return(<UserSidebarShow key={`user#${user.id}`} user={user} imgSrc={imgSrc}/>);
           }
         })}
       </div>

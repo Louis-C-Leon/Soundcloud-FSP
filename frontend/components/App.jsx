@@ -1,5 +1,4 @@
 import React from 'react';
-// import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SplashContainer from "./splash/splash";
 import ModalContainer from './modal/modal_container';
 import NavBarContainer from "./nav_bar/nav_bar_container";

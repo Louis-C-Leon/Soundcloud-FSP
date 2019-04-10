@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import SongContainer from "./song_container";
 
 class Stream extends React.Component {
