@@ -1,3 +1,4 @@
+
 @users.each do |curr_user|
   id = curr_user.id
   json.set! id do

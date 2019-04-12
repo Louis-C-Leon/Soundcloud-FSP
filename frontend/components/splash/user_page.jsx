@@ -52,11 +52,11 @@ class UserPage extends React.Component {
   }
 
   render() {
-    if (!this.state.user) {
-      return null;
-    }else if (this.props.currUser === null) {
+    if (!this.state.user && this.props.currUser === null) {
       this.props.openModal();
       return <Redirect to="/discover" />
+    }else if (!this.state.user) {
+      return null;
     } else if (!this.props.match.params.user){
       return <Redirect to="/discover" />
     } else if (this.props.match.params.user !== "you" && this.props.currUser === this.state.user.id) {

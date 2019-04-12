@@ -1,7 +1,14 @@
 class Api::UsersController < ApplicationController
 
+  before_action :work_plz
+
+  def work_plz
+    headers['Last-Modified'] = Time.now.httpdate
+  end
+
   def index
     @users = User.includes(:songs).all
+    render :index
   end
 
   def create

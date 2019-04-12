@@ -12,7 +12,7 @@ class ProgressBar extends React.Component {
       status: "playing",
       playedStyle: {width: "0%"},
       remainingStyle: {width: "100%"},
-      totalString: `AAAAAAAA`,
+      totalString: ``,
       elapsedString: "0:00",
       trackerClass: "trackerHidden"
     }

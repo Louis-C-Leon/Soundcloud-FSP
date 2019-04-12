@@ -1,4 +1,4 @@
-<main id="root"></main>
+<main id="root">REACT IS BROKEN</main>
 <% if logged_in? %>
   <script type="text/javascript">
       window.currentUser = <%= render("api/users/user.json.jbuilder",
@@ -20,5 +20,5 @@
     volume: "<%= asset_path('volume.svg')%>",
     playIcon: "<%= asset_path('playIcon.svg')%>",
     stockPhotos: ["<%= asset_path('stock1.jpg')%>", "<%= asset_path('stock2.jpg')%>", "<%= asset_path('stock3.jpg')%>"]
-  }); 
+  });
 </script>

@@ -11,17 +11,23 @@ import SongShowContainer from "./song_page_container";
 
 const Splash = () => {
   return(
-    <div className="songSplash">
-      <ProtectedRoute path={["/discover", "/stream", "/users"]} component={UserSideBarContainer}/>
-      <AuthRoute path={["/discover", "/stream", "/users"]} component={FillerSidebar}/>
-      <Switch>
-        <Route path={"/discover"} component={DiscoverContainer} />
-        <Route path={"/users/:user"} component={UserPageContainer} />
-        <Route path={"/stream"} component={StreamContainer} />
-        <Route path={"/upload"} component={UploadFormContainer} />
+    <>
+      <div className="pageHeader">
         <Route path={"/songs/:songId"} component={SongShowContainer} />
-      </Switch>
-    </div>
+      </div>
+      <div className="pageBody">
+        <div className="songSplash">
+          <Switch>
+            <Route path={"/discover"} component={DiscoverContainer} />
+            <Route path={"/users/:user"} component={UserPageContainer} />
+            <Route path={"/stream"} component={StreamContainer} />
+            <Route path={"/upload"} component={UploadFormContainer} />
+          </Switch> 
+        </div>
+        <ProtectedRoute component={UserSideBarContainer}/>
+        <AuthRoute component={FillerSidebar}/>
+      </div>
+    </>
   );
 }
 

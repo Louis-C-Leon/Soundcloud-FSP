@@ -1,22 +1,28 @@
 class Api::SongsController < ApplicationController
 
+  before_action :work_plz
+
+  def work_plz
+    headers['Last-Modified'] = Time.now.httpdate
+  end
+
   def show
     @song=Song.find_by(id: params[:id])
   end
 
 
   def index
-    @songs = Song.all
+    @songs = Song.all.limit(5)
   end
 
   def create
-    @song=Song.new(song_params);
+    @song=Song.new(song_params)
+
     if @song.save
       render :show
     else
       render json: @song.errors.full_messages
     end
-
   end
 
   def update
