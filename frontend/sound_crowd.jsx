@@ -3,34 +3,6 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from "./components/root";
 
-
-// var origOpen = XMLHttpRequest.prototype.open;
-// XMLHttpRequest.prototype.open = function(e1) {
-//     this.addEventListener('load', function(e2) {
-//         if (!this.responseURL.includes("api")) {
-//           this.abort();
-//         }
-//     });
-//     origOpen.apply(this, arguments);
-// };
-
-// var origSend = XMLHttpRequest.prototype.send;
-// XMLHttpRequest.prototype.send = function(e) {
-//   if (this.timeout === 60000) {
-//     // this.timeout = 1;
-//     console.log("GOTCHA")
-//   } else {
-//     origSend.apply(this, arguments);
-//   }
-// }
-
-
-// $.ajaxSetup({
-//   beforeSend: function(jqXHR, settings) {
-//     debugger;
-//   }
-// })
-
 document.addEventListener("DOMContentLoaded", (e) =>{
   console.log(e)
 

@@ -1,18 +1,12 @@
 class Api::SongsController < ApplicationController
 
-  before_action :work_plz
-
-  def work_plz
-    headers['Last-Modified'] = Time.now.httpdate
-  end
-
   def show
     @song=Song.find_by(id: params[:id])
   end
 
 
   def index
-    @songs = Song.all.limit(5)
+    @songs = Song.all
   end
 
   def create

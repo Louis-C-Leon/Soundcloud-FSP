@@ -4,8 +4,7 @@
   border: 1px solid #e0dfdf;
   border-top: none;
   flex-wrap: wrap;
-  font-family: Arial;
-  font-size: 14px;
+  overflow: hidden;
 }
 
 .pageBody {
@@ -16,6 +15,8 @@
   margin-top: none;
   box-sizing: border-box;
   display: flex;
+  font-family: Arial;
+  font-size: 14px;
 }
 
 .songContainer {
@@ -46,10 +47,6 @@
   cursor: pointer;
   color: orangered;
   border: 1px solid orangered;
-}
-
-.leftButton {
-
 }
 
 .carouselHeader {

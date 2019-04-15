@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SongShowGraphic from "./song_show_graphic";
+import analyze from 'rgbaster';
 class SongPage extends React.Component {
 
   constructor(props) {
@@ -15,12 +16,28 @@ class SongPage extends React.Component {
         this.props.getUser(this.props.song.user_id);
       });
     }
+    // if (this.props.song !== prevProps.song && document.querySelector(".songShowPicture")) {
+    //   analyze(this.getBase64Image(document.querySelector(".songShowPicture"))).then( (res) => { 
+    //     console.log(res[0]);
+    //     this.setState({headerColor: res[0].color});
+    //   })
+    // }
   }
   
   componentDidMount() {
     this.props.getSong(parseInt(this.props.match.params.songId)).then( () =>{
       this.props.getUser(this.props.song.user_id);
     });
+  }
+
+  getBase64Image(img) {
+    const canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    const dataURL = canvas.toDataURL("image/png");
+    return dataURL//.replace(/^data:image\/(png|jpg);base64,/, "");
   }
 
   render() {

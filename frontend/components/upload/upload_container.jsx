@@ -5,7 +5,7 @@ import * as UiActions from '../../actions/ui_actions';
 
 const mSTP = (state) => {
   return({
-    userId: state.session.id
+    userI: state.session.id
   });
 }
 
