@@ -16,6 +16,7 @@ const LoggedInRedirect = () => {
 
 const Splash = () => {
   return(
+    
     <>
       <ProtectedRoute component={LoggedInRedirect} />
       <div className="pageHeader">
@@ -25,10 +26,10 @@ const Splash = () => {
       <div className="pageBody">
         <div className="songSplash">
           <Switch>
-            <Route path={"/"} component={DiscoverContainer} />
             <Route path={"/users/:user"} component={UserPageContainer} />
             <Route path={"/stream"} component={StreamContainer} />
             <Route path={"/upload"} component={UploadFormContainer} />
+            <Route path={"/"} component={DiscoverContainer} />
           </Switch> 
         </div>
         <ProtectedRoute component={UserSideBarContainer}/>

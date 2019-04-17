@@ -74,7 +74,8 @@ input:focus {
   height: 100%;
   border-radius: 3px;
   border: none;
-  background: #E5E5E5
+  background: #E5E5E5;
+  min-width: 150px;
 }
 
 .searchContainer {
@@ -99,6 +100,7 @@ input:focus {
 .sessionBar {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .activeButton {
@@ -109,12 +111,51 @@ input:focus {
 .options {
   padding: 10px;
   width: 50px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.optionsButtonSelected {
+  background-color: #111111;
+}
+
+.optionsDropdown {
+  position: absolute;
+  height: auto;
+  z-index: 5;
+  overflow: hidden;
+  background-color: #111111;
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+  transform: translateX(-110px) translateY(7px);
+}
+
+.optionsDropdownHidden {
+  height: 0px;
+}
+
+.optionsDropdownItem {
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 100%;
+  line-height: 200%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdownIcon {
+  height: 20px;
+  width: auto;
   opacity: .6;
 }
 
-.options:hover {
-  cursor: pointer;
-  opacity: 1;
+.optionsDropdownItem:hover {
+  background-color: #333333;
 }
 
 .loginButton {
@@ -122,12 +163,14 @@ input:focus {
   color: rgb(255,255,255);
   border: 1px solid #666666;
   border-radius: 3px;
+  flex-shrink: 0;
   padding: 6px;
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
 .signupButton {
+  flex-shrink: 0;
   margin: 12px;
   background-color: #FC561F;
   color: rgb(255,255,255);
@@ -159,6 +202,7 @@ input:focus {
   justify-content: center;
   width:30px;
   height:30px;
+  flex-shrink: 0;
   overflow:hidden;
   border-radius: 50%;
 }
@@ -175,10 +219,12 @@ input:focus {
   flex-direction: row;
   padding-left: 10px;
   padding-right: 10px;
+  opacity: .8;
 }
 
 .navbarProfile:hover {
   cursor: pointer;
+  opacity: 1;
 }
 
 .username {

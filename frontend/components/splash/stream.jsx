@@ -8,10 +8,6 @@ class Stream extends React.Component {
   }
 
   render() {
-    console.log("rendering", this.props);
-    return(
-      <div>Some Text</div>
-    )
     return(
       <>
       <div className="discoverHeader">Browse Fresh Pressed Tracks</div>

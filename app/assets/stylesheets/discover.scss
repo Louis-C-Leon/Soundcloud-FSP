@@ -114,7 +114,7 @@
 }
 
 .rightButton {
-  left: 97%;
+  left: 833px;
 }
 
 .songArt {
@@ -126,8 +126,9 @@
 .songCarousel {
   display: flex;
   align-items: center;                
-  width: 100%;
+  width: 97%;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .carouselContainer {
@@ -136,6 +137,7 @@
   margin-right:10px;
   margin-left: 10px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 
