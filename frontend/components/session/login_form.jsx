@@ -11,26 +11,29 @@ class LoginForm extends React.Component {
       password: "",
       errors: [],
       inputClass: "",
+      demo: false,
     }
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const registerState = this.setState.bind(this);
-    if(this.props.checkPassword(this.state.password).length === 0) {
-      const user = {
-        email: this.props.pendingUser.email,
-        password: this.state.password
+    this.setState({password: document.querySelector(".sessionFormInput").value}, () => {
+      if(this.props.checkPassword(this.state.password).length === 0) {
+        const user = {
+          email: this.props.pendingUser.email,
+          password: this.state.password
+        }
+        this.props.loginUser(user).then( () => this.props.close(),(err) => {
+          registerState({errors: err.errors})
+        } )
+      } else {
+        this.setState({
+          errors: this.props.checkPassword(this.state.password),
+          inputClass: "inputError",
+        })
       }
-      this.props.loginUser(user).then( () => this.props.close(),(err) => {
-        registerState({errors: err.errors})
-      } )
-    } else {
-      this.setState({
-        errors: this.props.checkPassword(this.state.password),
-        inputClass: "inputError",
-      })
-    }
+    })
   }
 
   goBack() {

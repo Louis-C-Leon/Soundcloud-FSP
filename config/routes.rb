@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     post '/search/suggest', :to => 'searches#suggest'
     post 'search', :to => 'searches#search'
-    # get "check_registered", to: "users#check_registered"
+    get "check_registered", to: "users#check_registered"
   end
 
   root "static_pages#root"

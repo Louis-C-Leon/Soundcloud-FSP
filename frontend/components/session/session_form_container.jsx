@@ -3,6 +3,7 @@ import SessionForm from './session_form';
 import * as SessionActions from '../../actions/session_actions';
 import * as UserActions from '../../actions/user_actions';
 import { checkRegistered } from '../../util/user_utils';
+window.checkRegistered = checkRegistered;
 import { checkEmail, checkPassword, checkScreenName } from "../../util/session_utils";
 
 

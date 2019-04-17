@@ -22,8 +22,35 @@ class SessionForm extends React.Component {
     })
   }
 
-  demoLogin() {
-    
+  demoLogin(ctx) {
+    let email = "louis.leon@gmail.com"
+    let password = "runner39"
+    let counter = 0;
+    let input = document.querySelector(".sessionFormInput");
+    const loginInterval = setInterval(function(){
+      if (counter < email.length) {
+        input.value += email[counter];
+        counter += 1;
+        this.setState({email: input.value})
+      } else {
+        counter = 0;
+        document.getElementById("submitButton").click();
+        clearInterval(loginInterval);
+        setTimeout(function(){
+          input = document.querySelector(".sessionFormInput");
+          const passwordInterval = setInterval(function(){
+            if (counter < password.length) {
+              input.value += password[counter];
+              counter += 1;
+            } else {
+              document.getElementById("submitButton").click();
+              clearInterval(passwordInterval)
+            }
+          }, 80);
+          
+        }, 200)
+      }
+    }.bind(ctx), 80)
   }
 
   render() {
