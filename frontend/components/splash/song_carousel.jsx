@@ -18,7 +18,15 @@ class SongCarousel extends React.Component {
       currIndex: 0,
       backClass: "carouselHide",
       forwardClass: "carouselHide",
-      offset: 0,      
+      offset: 0,   
+      genreNames: {
+        "hip-hop": "Hip-Hop",
+        "indie/alternative": "Indie and Alternative",
+        "pop": "Pop and R&B",
+        "other": "Other",
+        "jazz": "Jazz",
+        "electronic": "Electronic"
+      }   
     }
     this.goForward = this.goForward.bind(this);
     this.goBack = this.goBack.bind(this); 
@@ -59,7 +67,7 @@ class SongCarousel extends React.Component {
     const songPlaylist = this.props.playlist.map(song => song.id)
     return (
       <div className="carouselContainer">
-        <div className="carouselHeader">{this.props.genre}</div>
+        <div className="carouselHeader">{this.state.genreNames[this.props.genre]}</div>
         <div className="songCarousel">
         <div className={`carouselButton leftButton ${this.state.backClass}`} onClick={this.goBack}>{"<"}</div>
         <div className={`carouselButton rightButton ${this.state.forwardClass}`} onClick={this.goForward}>{">"}</div>
