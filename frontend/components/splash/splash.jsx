@@ -1,5 +1,6 @@
 import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import { ProtectedRoute, AuthRoute} from "../../util/route_util";
 import UserSideBarContainer from "./user_sidebar_container";
 import FillerSidebar from "./filler_sidebar";
@@ -11,19 +12,31 @@ import SongShowContainer from "./song_page_container";
 import LoggedOutSplash from "./logged_out_splash";
 
 const LoggedInRedirect = () => {
-  return(<Redirect to="/discover" />)
+  setTimeout(100, () => {
+    const DiscoverRedirect = () => <Redirect to="/discover" />
+    return(<ProtectedRoute path="/" exact component={DiscoverRedirect} />);
+  });
 }
 
-const Splash = () => {
+const mSTP = (state) => {
+  return({
+    player: state.ui.playingSong !== null,
+  })
+}
+
+const Splash = (props) => {
+  let style = {};
+  if (props.player) {
+    style= {"paddingBottom": "50px"}
+  }
   return(
-    
     <>
-      <ProtectedRoute component={LoggedInRedirect} />
+      {LoggedInRedirect()}
       <div className="pageHeader">
         <Route path={"/songs/:songId"} component={SongShowContainer} />
         <AuthRoute component={LoggedOutSplash} />
       </div>
-      <div className="pageBody">
+      <div className="pageBody" style={style}>
         <div className="songSplash">
           <Switch>
             <Route path={"/users/:user"} component={UserPageContainer} />
@@ -39,4 +52,7 @@ const Splash = () => {
   );
 }
 
-export default Splash;
+const ConnectedSplash = withRouter(connect(mSTP)(Splash));
+
+
+export default ConnectedSplash;

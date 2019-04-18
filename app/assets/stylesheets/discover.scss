@@ -150,3 +150,70 @@
 .userSidebarShow {
   margin-top: 20px;
 }
+
+.loggedOutHeader {
+  height: 460px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Arial";
+  color: white;
+  position: relative;
+}
+
+.loggedOutContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.loggedOutTitle {
+  font-size: 225%;
+  margin: 30px;
+}
+
+.loggedOutBody {
+  font-size: 120%;
+  font-weight: lighter;
+  width: 48%;
+  display: flex;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.loggedOutButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.learnMoreButton {
+  display: flex;
+  padding: 10px;
+  border: 1px solid #CCCCCC;
+  align-items: center;
+}
+
+.uploadNowButton {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+
+.loggedOutHeaderBackground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(100, 100, 100, .5);
+  z-index: 1;
+}
+
+.loggedOutSplashIcon {
+  height: 20px;
+  width: auto;
+  margin-left: 20px;
+}
