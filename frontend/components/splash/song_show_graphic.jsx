@@ -12,7 +12,7 @@ class SongShowGraphic extends React.Component {
     this.state = {
       status: "playing",
       newTime: 0,
-      songData: songData,
+      songData,
       playing: true,
       focused: true
     }
@@ -21,6 +21,16 @@ class SongShowGraphic extends React.Component {
   static getDerivedStateFromProps(props, state) {
     const playing = props.song.id === props.currSong;
     return { playing}
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.song !== this.props.song) {
+      let songData = new Array();
+      for (let i = 0; i < 200; i++) {
+        songData.push(Math.random() * 50 + 50);
+      };
+      this.setState({songData})
+    }
   }
 
   animate() {
@@ -147,7 +157,7 @@ class SongShowGraphic extends React.Component {
                 const sec = Math.floor(newTime % 60);
                 this.setState({playedStyle: {width: `${played}%`}, remainingStyle: {width: `${remaining}%`}, elapsedString: `${min}:${`${sec}`.padStart(2,0)}`});
               } else {
-                
+
               }
             }
           }}

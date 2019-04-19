@@ -57,12 +57,12 @@ class SongPage extends React.Component {
       popupClass = "popupPlay";
       popupFunc = () => this.playSong(this.props.song.id, this.props.playlist);
     }
-    const header = document.querySelector(".songShowHeader")
-    if (header) {
-      header.style.backgroundColor = this.state.headerColor;
-    }
+    // const header = document.querySelector(".songShowHeader")
+    // if (header) {
+    //   header.style.backgroundColor = this.state.headerColor;
+    // }
     return(
-      <div className="songShowHeader">
+      <div className="songShowHeader" style={{"background": "linear-gradient(90deg, rgba(36,20,0,1) 0%, rgba(121,67,9,1) 100%)"}}>
         <div className="songTitleArtistButton">
         <div className={`playIconShow playIcon songShowPlayIcon`} onClick={popupFunc}>
             <div className={`songShowPlayButton popupIcon ${popupClass}`}/>
