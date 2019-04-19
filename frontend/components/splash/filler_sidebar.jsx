@@ -7,7 +7,7 @@ const FillerSidebar = (props) => {
         style={{justifySelf: "center", 
           textAlign: "center", 
           lineHeight: "40px",
-          color: "rgb(155, 155, 155)"}}>Log in to Join Our Artist Community!</div>
+          color: "rgb(155, 155, 155)"}}>Log in to View Artist Profiles!</div>
     </div>
   )
 }

@@ -76,7 +76,7 @@ class SongPage extends React.Component {
           <img className="songShowPicture" src={source}/>
         </div>
         <div className="songGraphicContainer">
-          <SongShowGraphic song={this.props.song} />
+          <SongShowGraphic song={this.props.song} currSong={this.props.currSong}/>
         </div>
       </div>
     )

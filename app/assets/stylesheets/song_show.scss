@@ -36,10 +36,10 @@
   align-items: center;
 }
 
-#songShowGraphic {
-  width: 500px;
-  height: 100px;
-}
+// #songShowGraphic {
+//   width: 500px;
+//   height: 100px;
+// }
 
 .songShowPictureContainer {
   grid-column-start: 2;
@@ -83,6 +83,10 @@
   margin: 5px;
   padding: 5px;
   display: inline-block;
+}
+
+#songShowGraphic {
+  cursor: pointer;
 }
 
 .songShowArtist {
