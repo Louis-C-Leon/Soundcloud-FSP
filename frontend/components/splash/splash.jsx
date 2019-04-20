@@ -41,11 +41,11 @@ const Splash = (props) => {
           <Switch>
             <Route path={"/users/:user"} component={UserPageContainer} />
             <Route path={"/stream"} component={StreamContainer} />
-            <Route path={"/upload"} component={UploadFormContainer} />
+            {/* <Route path={"/upload"} component={UploadFormContainer} />   */}
             <Route path={"/"} component={DiscoverContainer} />
           </Switch> 
         </div>
-        <ProtectedRoute component={UserSideBarContainer}/>
+        <ProtectedRoute component={(UserSideBarContainer)}/>
         <AuthRoute component={FillerSidebar}/>
       </div>
     </>
