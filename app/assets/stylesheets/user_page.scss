@@ -33,7 +33,16 @@
 
 .userPageTitle {
   font-size: 20px;
+  height: 50px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.userSongs {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .editButton {

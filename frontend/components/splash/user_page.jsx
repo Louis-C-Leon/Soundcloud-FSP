@@ -26,7 +26,7 @@ class UserPage extends React.Component {
       }
       this.setState({user: you, songs: you.songs, edit: "true"})
     } else {
-      this.props.getUser(userParams).then((res) => {this.setState({user: res.user, songs: res.user.songs, edit: "false"})});
+      this.props.getUser(userParams).then((res) => {this.setState({user: res.user, songs: res.user.songs, edit: "false", redirect: false})});
     }
   }
 
@@ -59,7 +59,8 @@ class UserPage extends React.Component {
       return null;
     } else if (!this.props.match.params.user){
       return <Redirect to="/discover" />
-    } else if (this.props.match.params.user !== "you" && this.props.currUser === this.state.user.id) {
+    } else if (this.props.match.params.user !== "you" && this.state.redirect) {
+      setTimeout(0, this.setState({redirect: false}));
       return <Redirect to="/users/you" />
     } else {
       let imgSrc;
@@ -78,13 +79,17 @@ class UserPage extends React.Component {
           <div className="screenName">{this.state.user.screen_name}</div>
         </div>
         <div className="userPageTitle">Tracks</div>
+        <div className="userSongs">
         {Object.keys(this.props.songs).map((songId) => {
           if (this.props.songs[songId].user_id === this.state.user.id) {
-            return(<div className="songContainer" style={{marginTop: "30px"}}>
-            <SongContainer key={`userSong#${songId}`} song={this.props.songs[songId]} />
-            {this.edit(songId)}
-          </div>
-        )}})}
+            return(
+              <div className="songContainer" style={{marginTop: "30px"}}>
+                <SongContainer key={`userSong#${songId}`} song={this.props.songs[songId]} />
+                {this.edit(songId)}
+                </div>
+            );
+          }})}
+        </div>
         </>
       )
     }
