@@ -3,7 +3,7 @@
   padding-right: 10px;
   text-decoration: none;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-content: center;
   position: fixed;
   top: 0;
@@ -15,7 +15,7 @@
   font-family: "Arial";
   font-size: 13px;
   color: #CCCCCC;
-  z-index: 2;
+  z-index: 10;
 }
 
 input:focus {
