@@ -25,6 +25,7 @@ class User < ApplicationRecord
     class_name: 'Song'
 
   has_one_attached :image
+  has_one_attached :cover_image
 
   attr_reader :password
 

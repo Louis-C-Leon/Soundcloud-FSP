@@ -63,16 +63,20 @@ class UserPage extends React.Component {
       setTimeout(0, this.setState({redirect: false}));
       return <Redirect to="/users/you" />
     } else {
-      let imgSrc;
+      let imgSrc, coverImgSrc;
       if (this.state.user.photoUrl === undefined) {
         imgSrc = window.images.defaultProfile;
       } else {
         imgSrc = this.state.user.photoUrl;
       }
-      const stockImage = `${window.images.stockPhotos[Math.floor(Math.random()*3)]}`
+      if (this.state.user.coverPhotoUrl === undefined) {
+        coverImgSrc = `${window.images.stockPhotos[Math.floor(Math.random()*3)]}`;
+      } else {
+        coverImgSrc = `${this.state.user.coverPhotoUrl}`;
+      }
       return(
         <>
-        <div key="userHeader" className="userHeader" style={{backgroundImage: `url(${stockImage})`, backgroundPosition: "center", backgroundSize: "cover"}}>
+        <div key="userHeader" className="userHeader" style={{backgroundImage: `url(${coverImgSrc})`, backgroundPosition: "center", backgroundSize: "cover"}}>
           <div key="userProfile" className="userPageProfileContainer">
             <img className="userPageProfile" src={imgSrc}/>
           </div>

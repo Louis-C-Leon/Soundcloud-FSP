@@ -4,6 +4,10 @@ if user.image.attached?
   json.photoUrl url_for(user.image)
 end
 
+if user.cover_image.attached? 
+  json.coverPhotoUrl url_for(user.cover_image)
+end
+
 json.songs do
   user.songs.each do |curr_song|
     id = curr_song.id

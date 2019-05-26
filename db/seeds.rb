@@ -261,7 +261,7 @@ ActiveRecord::Base.transaction do
     release_date:"03/03/2019",
     user_id: louis.id,
     song_file: {io: open("https://s3-us-west-1.amazonaws.com/sound-crowd-dev/song23.mp3"), filename: "song23.mp3"}
-    )
+  )
   song24 = Song.create!(
     title: "Afloat",
     genre:"jazz",
