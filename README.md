@@ -1,3 +1,5 @@
+## Note: Due to deprecated dependencies and lack of time to maintain this project, I've had to take it offline
+
 # SoundCrowd
 
 [Live Site](https://soundcrowd-fsp.herokuapp.com/)
